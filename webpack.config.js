@@ -19,6 +19,9 @@ module.exports = {
           // without additional setting, this will reference .babelrc
           loader: "babel-loader",
         }
+      }, {
+        test: /\.css$/i,
+        use: ["css-loader"],
       }
     ]
   },
