@@ -6,8 +6,9 @@ export class App {
   }
 
   createMain() {
-
-    this.$main.innerHTML = `<h1>hello</h1>`
+    const $message = document.createElement('h1');
+    $message.innerText = 'hello webpack';
+    this.$main.appendChild($message);
   }
 
 }
