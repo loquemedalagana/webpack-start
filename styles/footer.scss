@@ -1,5 +1,30 @@
-foooter {
-  & > p {
-    font-family: 'Julius Sans One', sans-serif;
+footer {
+  padding: 0.9375rem 0;
+  text-align: center;
+  display: flex;
+  z-index: 2;
+  position: relative;
+
+  & > a {
+    color: #7579e7;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color 0.2s linear, color 0.2s linear;
   }
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 3px;
+}
+
+.copyright-text {
+  font-family: 'Julius Sans One', sans-serif;
+  padding: 15px 0;
+  margin: 0;
+  float: right !important;
+
+
 }
