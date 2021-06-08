@@ -8,13 +8,15 @@ module.exports = {
 
   entry: './src/index.js',
   output: {
-    filename: "main.js", // 빌드된 js파일 이름
+    filename: 'main.js', // 빌드된 js파일 이름
     path: path.resolve(__dirname, 'dist'), // 빌드된 경로 이름
   },
   plugins: [
     new HtmlWebpackPlugin({
-    template: "./assets/index.html",
-  }), new MiniCssExtractPlugin()],
+      template: './assets/index.html',
+    }),
+    new MiniCssExtractPlugin(),
+  ],
   module: {
     rules: [
       {
@@ -22,21 +24,19 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           // without additional setting, this will reference .babelrc
-          loader: "babel-loader",
-        }
-      }, {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.css$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-        ],
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
   },
 
   devtool: 'source-map',
 
   devServer: {
     contentBase: './dist',
-  }
-}
+  },
+};
