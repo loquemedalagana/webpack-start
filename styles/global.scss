@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Noto+Sans+KR:wght@100&family=Poor+Story&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+main {
+  color: #898b8a;
+}
+
+body {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#5ee7df), to(#b490ca));
+    background-image: -webkit-linear-gradient(bottom, #5ee7df 0%, #b490ca 100%);
+    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  ::selection {
+    background-color: #FDE2E4;
+  }
+  ::-moz-selection {
+    background-color: #FDE2E4;
+  }
+}
