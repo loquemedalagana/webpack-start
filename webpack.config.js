@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
@@ -10,9 +11,10 @@ module.exports = {
     filename: "main.js", // 빌드된 js파일 이름
     path: path.resolve(__dirname, 'dist'), // 빌드된 경로 이름
   },
-  plugins: [new HtmlWebpackPlugin({
+  plugins: [
+    new HtmlWebpackPlugin({
     template: "./assets/index.html",
-  })],
+  }), new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -25,6 +27,7 @@ module.exports = {
       }, {
         test: /\.css$/i,
         use: [
+          MiniCssExtractPlugin.loader,
           "css-loader",
         ],
       }
