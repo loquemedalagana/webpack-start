@@ -1,5 +1,5 @@
 export class App {
-  // $main: HTMLElement;
+  $main: HTMLElement;
 
   constructor() {
     this.$main = document.getElementById('app');
