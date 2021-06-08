@@ -1,5 +1,5 @@
 // import "/styles/index.sass";
-import './style.css';
+import '../styles/style.css';
 import { App } from './App';
 
 let app = new App();
