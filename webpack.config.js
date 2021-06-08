@@ -6,8 +6,8 @@ module.exports = {
 
   entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, 'public'),
+    filename: "main.js", // 빌드된 js파일 이름
+    path: path.resolve(__dirname, 'dist'), // 빌드된 경로 이름
   },
 
   module: {
@@ -26,6 +26,6 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    contentBase: './public',
+    contentBase: './dist',
   }
 }
