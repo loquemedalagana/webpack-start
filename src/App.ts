@@ -3,6 +3,7 @@ export class App {
 
   constructor() {
     this.$main = document.getElementById('app');
+    this.$main.className = "container container-fluid";
   }
 
   createMain() {
