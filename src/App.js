@@ -17,6 +17,7 @@ export class App {
     }
     $message.innerText = `the bassist of the Revetones: ${newBand.bass}`;
     this.$main.appendChild($message);
+    console.log('App.js');
   }
 
 }
