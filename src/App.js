@@ -7,7 +7,15 @@ export class App {
 
   createMain() {
     const $message = document.createElement('h1');
-    $message.innerText = 'hello webpack';
+    const band = {
+      vocal: 'Dani Martin',
+      piano: 'Inaki Garcia',
+    };
+    const newBand = {
+      ...band,
+      bass: 'Candy Caramelo',
+    }
+    $message.innerText = `the bassist of the Revetones: ${newBand.bass}`;
     this.$main.appendChild($message);
   }
 
