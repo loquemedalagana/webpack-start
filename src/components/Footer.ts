@@ -1,5 +1,5 @@
 import { Core } from "../Core";
-import { COPYRIGHT_INNERHTML } from '../constants/texts';
+import { COPYRIGHT_INNERHTML } from "../constants/innerHTML";
 
 export class Footer extends Core {
   $footerWrapper: HTMLElement;
