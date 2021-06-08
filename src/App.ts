@@ -1,9 +1,9 @@
-export class App {
-  $main: HTMLElement;
+import { Core } from './Core';
+import { Footer } from './components/Footer';
 
+export class App extends Core {
   constructor() {
-    this.$main = document.getElementById('app');
-    this.$main.className = "container container-fluid";
+    super();
   }
 
   createMain() {
@@ -19,5 +19,8 @@ export class App {
     $message.innerText = `the bassist of the Revetones: ${newBand.bass}`;
     this.$main.appendChild($message);
     console.log('App.js');
+
+    const footer = new Footer();
+    footer.createFooter();
   }
 }
