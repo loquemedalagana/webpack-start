@@ -6,7 +6,7 @@ const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development
 module.exports = {
   mode,
 
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     filename: 'main.js', // 빌드된 js파일 이름
     path: path.resolve(__dirname, 'dist'), // 빌드된 경로 이름
@@ -20,7 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: {
           // without additional setting, this will reference .babelrc
@@ -36,6 +36,10 @@ module.exports = {
         ],
       },
     ],
+  },
+
+  resolve: {
+    extensions: [".ts", ".js"],
   },
 
   devtool: 'source-map',
