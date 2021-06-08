@@ -1,0 +1,1 @@
+(()=>{"use strict";(new class{constructor(){this.$main=document.getElementById("app")}createMain(){const e=document.createElement("h1");e.innerText="hello webpack",this.$main.appendChild(e)}}).createMain()})();
