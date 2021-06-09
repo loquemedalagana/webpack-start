@@ -1,0 +1,16 @@
+.image-thumbnail {
+  border-radius: 6px !important;
+  float: left;
+  transition: opacity 0.2s linear, color 0.2s linear;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.image-thumbnail-description {
+  // float: right;
+  line-height: 150%;
+  color: #655c56;
+  font-size: 150%;
+}
+
