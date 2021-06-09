@@ -1,4 +1,5 @@
 import {APP_TITLE} from "./texts";
+import { ImageItem } from "../types/item";
 
 export const COPYRIGHT_INNERHTML = `
 <div class="container container-fluid">
@@ -23,4 +24,12 @@ export const APP_TITLE_INNTERHTML = `
 <div class="header-title">
   <h1>${APP_TITLE}</h1>    
 </div>
+`;
+
+export const IMAGE_THUMBNAIL_INNERHTML = (imageData: ImageItem) => `
+<section>
+  <div>
+    <img src="${imageData.url}" alt="${imageData.title}" >
+  </div>
+</section>
 `;
