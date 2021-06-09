@@ -1,13 +1,13 @@
-export type Item = {
+export type PostItem = {
   id: string;
   title: string;
   description?: string;
 }
 
-export type ImageItem = Item & {
+export type ImageItem = PostItem & {
   url: string;
 }
 
-export type VideoItem = Item & {
+export type VideoItem = PostItem & {
   videoId: string;
 }
