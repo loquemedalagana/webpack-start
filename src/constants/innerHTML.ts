@@ -26,7 +26,7 @@ export const APP_TITLE_INNTERHTML = `
 </div>
 `;
 
-export const IMAGE_THUMBNAIL_INNERHTML = `
+export const IMAGE_INNERHTML = `
 <section>
   <div class="card-container">
   <div class="image-thumbnail-wrapper">
