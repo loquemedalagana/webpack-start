@@ -7,7 +7,9 @@ export class Header {
   constructor() {
     this.$headerWrapper = document.createElement('header');
     this.$headerContainer = document.createElement('div');
-    this.$headerContainer.classList.add('container container-fluid');
+
+    // setAttribute vs classlist.add 차이점
+    this.$headerContainer.setAttribute('class', 'container container-fluid');
     this.$headerContainer.innerHTML = APP_TITLE_INNTERHTML;
     this.$headerWrapper.appendChild(this.$headerContainer);
   }
