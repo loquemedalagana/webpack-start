@@ -4,11 +4,11 @@
 
   @media (max-width: 767px) {
     grid-template-rows: 1.5fr 1fr;
-    gap: 0px 0px;
+    gap: 1em 1em;
   }
 
   @media (min-width: 768px) {
     grid-template-columns: 1.5fr 1fr;
-    gap: 0px 0px;
+    gap: 1em 1em;
   }
 }

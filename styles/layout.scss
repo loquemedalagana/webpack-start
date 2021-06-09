@@ -1,4 +1,8 @@
 .container {
+  @media (max-width: 575px) {
+    max-width: calc(100% - 20px);
+  }
+
   @media (min-width: 576px) {
     max-width: 540px;
   }
@@ -16,5 +20,11 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  width: 100%;
+}
+
+#app {
+  text-align: center;
+  justify-items: center;
   width: 100%;
 }
