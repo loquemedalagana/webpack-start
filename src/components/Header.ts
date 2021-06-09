@@ -9,6 +9,7 @@ export class Header {
     this.$headerContainer = document.createElement('div');
 
     // setAttribute vs classlist.add 차이점
+    this.$headerWrapper.setAttribute('class', 'appbar appbar-main-color')
     this.$headerContainer.setAttribute('class', 'container container-fluid');
     this.$headerContainer.innerHTML = APP_TITLE_INNTERHTML;
     this.$headerWrapper.appendChild(this.$headerContainer);
