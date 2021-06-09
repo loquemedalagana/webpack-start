@@ -38,3 +38,20 @@ export const IMAGE_INNERHTML = `
   </div>
 </section>
 `;
+
+export const HEADER_INNERHTML = `
+<header class="appbar appbar-main-color"></header>
+`;
+
+export const FOOTER_INNERHTML = `
+<footer></footer>
+`;
+
+export const CARDWRAPPER_INNERHTML = `
+<div id="card-list-wrapper" class="container container-fluid">
+</div>
+`;
+
+export const NAVIGATION_INNERHTML = `
+<ul class="nav"></ul>
+`;

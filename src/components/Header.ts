@@ -1,14 +1,13 @@
-import { Navigation } from "./Navigation";
-import { APP_TITLE_INNTERHTML } from '../constants/innerHTML';
+import { Core } from '../util/Core';
+import { Navigation } from './Navigation';
+import { APP_TITLE_INNTERHTML, HEADER_INNERHTML } from '../constants/innerHTML';
 
-export class Header {
-  private $element: HTMLElement;
+export class Header extends Core<HTMLElement>{
   private $headerContainer: HTMLElement;
   private $navigation: Navigation;
 
   constructor() {
-    this.$element = document.createElement('header');
-    this.$element.setAttribute('class', 'appbar appbar-main-color');
+    super(HEADER_INNERHTML);
 
     this.$headerContainer = document.createElement('div');
     this.$navigation = new Navigation();
@@ -17,11 +16,7 @@ export class Header {
 
     this.$headerContainer.setAttribute('class', 'container container-fluid');
     this.$headerContainer.innerHTML = APP_TITLE_INNTERHTML;
-    this.$navigation.attachTo(this.$headerContainer, "beforeend");
+    this.$navigation.attachTo(this.$headerContainer, 'beforeend');
     this.$element.appendChild(this.$headerContainer);
-  }
-
-  attachTo(parent: HTMLElement, position: InsertPosition = "afterbegin") {
-    parent.insertAdjacentElement(position, this.$element);
   }
 }

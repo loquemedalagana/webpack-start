@@ -1,10 +1,9 @@
-import { COPYRIGHT_INNERHTML } from "../constants/innerHTML";
+import { Core } from '../util/Core';
+import { COPYRIGHT_INNERHTML, FOOTER_INNERHTML } from '../constants/innerHTML';
 
-export class Footer {
-  private $element: HTMLElement;
-
+export class Footer extends Core<HTMLElement>{
   constructor() {
-    this.$element = document.createElement('footer');
+    super(FOOTER_INNERHTML);
     this.$element.innerHTML = COPYRIGHT_INNERHTML;
   }
 

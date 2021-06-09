@@ -1,14 +1,12 @@
+import { Core } from '../util/Core';
 import { ImageItem } from '../types/item';
 import { IMAGE_INNERHTML } from '../constants/innerHTML';
 
-export class Image {
-  private $element: HTMLImageElement | HTMLElement;
-
+export class Image extends Core<HTMLElement | HTMLImageElement> {
   constructor(imageInfo: ImageItem) {
+    super(IMAGE_INNERHTML);
     const template = document.createElement('template');
     template.innerHTML = IMAGE_INNERHTML;
-
-    this.$element = template.content.firstElementChild! as HTMLElement;
 
     const $imageElement = this.$element.querySelector('.image')! as HTMLImageElement;
 
@@ -19,7 +17,4 @@ export class Image {
     $descriptionElement.innerText = imageInfo.description;
   }
 
-  attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
-    parent.insertAdjacentElement(position, this.$element);
-  }
 }

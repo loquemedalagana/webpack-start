@@ -1,20 +1,20 @@
+import { Core } from "../util/Core";
+import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
+
 type NavItemsId = {
   name: string;
   id: string;
-}
+};
 
-export class Navigation {
-  private $element: HTMLElement;
+export class Navigation extends Core<HTMLElement>{
   private $navItems: HTMLElement[];
   private navItemsName = ['image', 'video', 'note'];
 
   constructor() {
-    this.$element = document.createElement('ul');
-    this.$element.setAttribute('class', 'nav');
+    super(NAVIGATION_INNERHTML);
 
     this.$navItems = this.createNavItems();
-
-    this.$navItems.forEach($navItem => {
+    this.$navItems.forEach(($navItem) => {
       this.$element.appendChild($navItem);
     });
   }
@@ -34,7 +34,4 @@ export class Navigation {
     });
   }
 
-  attachTo(parent: HTMLElement, position: InsertPosition = "beforeend") {
-    parent.insertAdjacentElement(position, this.$element);
-  }
 }
