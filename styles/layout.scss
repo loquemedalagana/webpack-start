@@ -25,12 +25,27 @@
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
   margin: 0;
   text-align: center;
   justify-items: center;
   width: 100%;
+  z-index: 3;
 }
 
 #card-list-wrapper {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  box-sizing: content-box;
+
+  left: 0;
+  right: 0;
+
+  margin-left: auto;
+  margin-right: auto;
 }
