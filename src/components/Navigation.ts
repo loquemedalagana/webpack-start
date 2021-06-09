@@ -24,7 +24,7 @@ export class Navigation {
       const $navButtonElement = document.createElement('button');
       $navItemElement.setAttribute('id', `nav-${index}`);
       $navButtonElement.setAttribute('id', `new-${itemTitle}`);
-      $navButtonElement.setAttribute('class', 'button-transparent');
+      $navButtonElement.setAttribute('class', 'button-transparent nav-button');
       $navButtonElement.innerText = itemTitle;
 
       $navItemElement.appendChild($navButtonElement);
