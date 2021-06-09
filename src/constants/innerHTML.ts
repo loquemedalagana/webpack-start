@@ -29,7 +29,9 @@ export const APP_TITLE_INNTERHTML = `
 export const IMAGE_THUMBNAIL_INNERHTML = `
 <section>
   <div class="card-container">
-    <img class="image-thumbnail image" >
+  <div class="image-thumbnail-wrapper">
+    <img class="image image-thumbnail" >
+  </div>
     <p class="image-thumbnail-description"></p>
   </div>
 </section>
