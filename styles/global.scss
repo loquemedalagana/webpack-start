@@ -6,6 +6,11 @@ body {
 
 main {
   color: #898b8a;
+  min-height: 100vh;
+}
+
+.main-dark {
+
 }
 
 body {
@@ -54,8 +59,12 @@ body {
 
 a {
   font-family: inherit;
-  color: #7579e7;
+  color: #a1cae2;
   text-decoration: none;
   background-color: transparent;
   transition: color 0.2s linear, color 0.2s linear;
+
+  &:hover,&:focus {
+    color: #94b5c0;
+  }
 }
