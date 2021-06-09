@@ -5,8 +5,10 @@ footer {
   z-index: 2;
   position: relative;
 
+  background: linear-gradient(0deg, #f7f3e9, #f3f4ed);
+
   & > a {
-    color: #7579e7;
+    color: #a1cae2;
     text-decoration: none;
     background-color: transparent;
     transition: color 0.2s linear, color 0.2s linear;
