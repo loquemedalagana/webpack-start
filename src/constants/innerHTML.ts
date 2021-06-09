@@ -1,4 +1,5 @@
 export const COPYRIGHT_INNERHTML = `
+<div class="container container-fluid">
   <span class="copyright-text">
     &copy; ${new Date().getFullYear()} , developed 
     ❤️
@@ -13,4 +14,5 @@ export const COPYRIGHT_INNERHTML = `
     ${" "}
     for a better world.
   </span>
+</div>
 `;
