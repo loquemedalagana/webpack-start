@@ -1,8 +1,10 @@
 export class Body {
-  $main: HTMLElement;
+  private $element: HTMLElement;
 
   constructor() {
-    this.$main = document.getElementById('app');
-    this.$main.classList.add('container', 'container-fluid');
+    this.$element = document.querySelector('main');
+    this.$element.classList.add('container', 'container-fluid');
   }
+
+  // add card elements
 }
