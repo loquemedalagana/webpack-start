@@ -1,4 +1,4 @@
-export class Core {
+export class Body {
   $app: HTMLElement;
   $main: HTMLElement;
 

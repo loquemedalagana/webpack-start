@@ -1,7 +1,7 @@
-import { Core } from './Core';
+import { Body } from './Body';
 import { Footer } from './components/Footer';
 
-export class App extends Core {
+export class App extends Body {
   constructor() {
     super();
   }
