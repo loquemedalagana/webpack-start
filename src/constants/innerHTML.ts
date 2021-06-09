@@ -32,7 +32,9 @@ export const IMAGE_THUMBNAIL_INNERHTML = `
   <div class="image-thumbnail-wrapper">
     <img class="image image-thumbnail" >
   </div>
+  <div class="image-description-wrapper">
     <p class="image-thumbnail-description"></p>
+  </div>
   </div>
 </section>
 `;
