@@ -11,6 +11,7 @@ export class Navigation {
   constructor() {
     this.$element = document.createElement('ul');
     this.$element.setAttribute('class', 'nav');
+
     this.$navItems = this.createNavItems();
 
     this.$navItems.forEach($navItem => {
@@ -33,7 +34,7 @@ export class Navigation {
     });
   }
 
-  attachNavigation(parent: HTMLElement, position: InsertPosition = "beforeend") {
+  attachTo(parent: HTMLElement, position: InsertPosition = "beforeend") {
     parent.insertAdjacentElement(position, this.$element);
   }
 }

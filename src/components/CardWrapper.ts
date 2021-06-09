@@ -15,7 +15,7 @@ export class CardWrapper {
       description: "Jeon Inhyuk band official image",
     });
 
-    imageTest.addImage(this.$element);
+    imageTest.attachTo(this.$element);
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {

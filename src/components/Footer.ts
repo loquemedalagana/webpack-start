@@ -8,7 +8,7 @@ export class Footer {
     this.$element.innerHTML = COPYRIGHT_INNERHTML;
   }
 
-  attachFooter(parent: HTMLElement, position: InsertPosition = 'beforeend') {
+  attachTo(parent: HTMLElement, position: InsertPosition = 'beforeend') {
     parent.insertAdjacentElement(position, this.$element);
   }
 }

@@ -19,7 +19,7 @@ export class Image {
     $descriptionElement.innerText = imageInfo.description;
   }
 
-  addImage(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
+  attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
     parent.insertAdjacentElement(position, this.$element);
   }
 }
