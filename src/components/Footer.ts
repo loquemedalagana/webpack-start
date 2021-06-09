@@ -7,7 +7,6 @@ export class Footer extends Core {
     super();
     this.$footerWrapper = document.createElement('footer');
     this.$footerWrapper.innerHTML = COPYRIGHT_INNERHTML;
-    this.$footerWrapper.classList.add('container', 'container-fluid');
   }
 
   createFooter() {
