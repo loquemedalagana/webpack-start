@@ -1,0 +1,41 @@
+.card-container {
+  background: #fcf8e8;
+  display: grid;
+
+  @media (max-width: 767px) {
+    grid-template-rows: 1.5fr 1fr;
+    gap: 1em 1em;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1em 1em;
+  }
+}
+
+.card-description-wrapper {
+  align-content: center;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    align-content: space-between;
+    align-items: stretch;
+  }
+}
+
+.card-description {
+  line-height: 150%;
+  color: #655c56;
+  font-size: 150%;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+
+  @media (min-width: 768px) {
+    margin-block-end: 0;
+    text-align: left;
+  }
+}

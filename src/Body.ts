@@ -7,7 +7,7 @@ export class Body {
   constructor() {
     this.$element = document.querySelector('main');
     this.$cardWrapper = new CardWrapper();
-    this.$element.classList.add('container', 'container-fluid');
+    this.$element.setAttribute('class', 'container');
     this.$cardWrapper.attachTo(this.$element);
   }
 }
