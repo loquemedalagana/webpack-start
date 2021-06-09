@@ -8,14 +8,16 @@ export class Header {
 
   constructor() {
     this.$element = document.createElement('header');
+    this.$element.setAttribute('class', 'appbar appbar-main-color');
+
     this.$headerContainer = document.createElement('div');
     this.$navigation = new Navigation();
 
     // setAttribute vs classlist.add 차이점
-    this.$element.setAttribute('class', 'appbar appbar-main-color')
+
     this.$headerContainer.setAttribute('class', 'container container-fluid');
     this.$headerContainer.innerHTML = APP_TITLE_INNTERHTML;
-    this.$navigation.attachTo(this.$headerContainer);
+    this.$navigation.attachTo(this.$headerContainer, "beforeend");
     this.$element.appendChild(this.$headerContainer);
   }
 

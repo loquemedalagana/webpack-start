@@ -11,8 +11,8 @@ export class App {
     this.$header = new Header();
     this.$body = new Body();
     this.$footer = new Footer();
-    this.$header.attachTo(appRoot);
-    this.$footer.attachTo(appRoot);
+    this.$header.attachTo(appRoot, "afterbegin");
+    this.$footer.attachTo(appRoot, "beforeend");
   }
 
 }
