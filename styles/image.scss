@@ -18,6 +18,16 @@
   }
 }
 
+.image-description-wrapper {
+  align-content: center;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    align-content: space-between;
+    align-items: stretch;
+  }
+}
+
 .image-thumbnail-description {
   line-height: 150%;
   color: #655c56;
