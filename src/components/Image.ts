@@ -5,10 +5,15 @@ export class Image {
   private $element: HTMLImageElement | HTMLElement;
 
   constructor(imageInfo: ImageItem) {
-    this.$element = document.createElement('template');
-    this.$element.innerHTML = IMAGE_THUMBNAIL_INNERHTML;
+    const template = document.createElement('template');
+    template.innerHTML = IMAGE_THUMBNAIL_INNERHTML;
+
+    this.$element = template.content.firstElementChild! as HTMLElement;
+
+    console.log(imageInfo, this.$element);
 
     const $imageElement = this.$element.querySelector('img')! as HTMLImageElement;
+    console.log($imageElement);
     $imageElement.src = imageInfo.url;
     $imageElement.alt = imageInfo.title;
 
