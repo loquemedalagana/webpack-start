@@ -1,3 +1,5 @@
+import {APP_TITLE} from "./texts";
+
 export const COPYRIGHT_INNERHTML = `
 <div class="container container-fluid">
   <span class="copyright-text">
@@ -14,5 +16,11 @@ export const COPYRIGHT_INNERHTML = `
     ${" "}
     for a better world.
   </span>
+</div>
+`;
+
+export const APP_TITLE_INNTERHTML = `
+<div class="header-title">
+  <h1>${APP_TITLE}</h1>    
 </div>
 `;
