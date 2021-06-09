@@ -21,10 +21,16 @@
   margin-right: auto;
   margin-left: auto;
   width: 100%;
+  overflow: hidden;
 }
 
 #app {
+  margin: 0;
   text-align: center;
   justify-items: center;
   width: 100%;
+}
+
+#card-list-wrapper {
+  display: inline-block;
 }
