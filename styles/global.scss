@@ -6,6 +6,11 @@ body {
 
 main {
   color: #898b8a;
+  min-height: 100vh;
+}
+
+.main-dark {
+
 }
 
 body {
@@ -50,4 +55,22 @@ body {
   ::-moz-selection {
     background-color: #FDE2E4;
   }
+}
+
+a {
+  font-family: inherit;
+  color: #a1cae2;
+  text-decoration: none;
+  background-color: transparent;
+  transition: color 0.2s linear, color 0.2s linear;
+
+  &:hover,&:focus {
+    color: #94b5c0;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  user-select: none;
 }

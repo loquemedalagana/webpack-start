@@ -1,22 +1,18 @@
+import { Header } from "./components/Header";
+import { Body } from './Body';
+import { Footer } from './components/Footer';
+
 export class App {
-  $main: HTMLElement;
+  private $header: Header;
+  private $body: Body;
+  private $footer: Footer;
 
-  constructor() {
-    this.$main = document.getElementById('app');
+  constructor(appRoot: HTMLElement) {
+    this.$header = new Header();
+    this.$body = new Body();
+    this.$footer = new Footer();
+    this.$header.attachHeader(appRoot);
+    this.$footer.attachFooter(appRoot);
   }
 
-  createMain() {
-    const $message = document.createElement('h1');
-    const band = {
-      vocal: 'Dani Martin',
-      piano: 'Inaki Garcia',
-    };
-    const newBand = {
-      ...band,
-      bass: 'Candy Caramelo',
-    };
-    $message.innerText = `the bassist of the Revetones: ${newBand.bass}`;
-    this.$main.appendChild($message);
-    console.log('App.js');
-  }
 }
