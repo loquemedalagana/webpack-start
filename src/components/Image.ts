@@ -10,7 +10,7 @@ export class Image {
 
     this.$element = template.content.firstElementChild! as HTMLElement;
 
-    const $imageElement = this.$element.querySelector('img')! as HTMLImageElement;
+    const $imageElement = this.$element.querySelector('.image')! as HTMLImageElement;
 
     $imageElement.src = imageInfo.url;
     $imageElement.alt = imageInfo.title;
