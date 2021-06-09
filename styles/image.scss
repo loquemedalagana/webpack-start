@@ -5,6 +5,7 @@
 .image-thumbnail {
   border-radius: 6px !important;
   transition: opacity 0.2s linear, color 0.2s linear;
+  margin: 1em;
   &:hover {
     opacity: 0.6;
   }
@@ -15,6 +16,7 @@
   color: #655c56;
   font-size: 150%;
   text-align: center;
+  margin: 1em;
 
   @media (min-width: 768px) {
     text-align: left;
