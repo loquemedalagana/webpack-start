@@ -26,11 +26,11 @@ export const APP_TITLE_INNTERHTML = `
 </div>
 `;
 
-export const IMAGE_THUMBNAIL_INNERHTML = (imageData: ImageItem) => `
+export const IMAGE_THUMBNAIL_INNERHTML = `
 <section>
   <div>
-    <img src="${imageData.url}" alt="${imageData.title}" class="image-thumbnail" >
-    <p class="image-thumbnail-description">${imageData.description}</p>
+    <img class="image-thumbnail" >
+    <p class="image-thumbnail-description"></p>
   </div>
 </section>
 `;
