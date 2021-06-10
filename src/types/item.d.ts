@@ -1,4 +1,7 @@
+export type PostType = "post" | "image" | "video";
+
 export type PostItem = {
+  type: PostType;
   id: string;
   title: string;
   description?: string;
