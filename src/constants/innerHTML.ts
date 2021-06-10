@@ -28,18 +28,22 @@ export const APP_TITLE_INNTERHTML = `
 
 export const CARD_INNERHTML = `
 <li class="card-root">
+  <section>
+    <div class="card-body">
+    </div>
+  </section>
+</li>
+`;
+
+export const CARD_HEADER_INNERHTML = `
   <div class="card-header">
     <h2 class="card-title"></h2>
     <div class="card-control">
       <button class="card-close-button">&times;</button>
     </div>
   </div>
-  <section>
-      <div class="card-body">
-      </div>
-  </section>
-</li>
 `;
+
 
 export const CARD_DESCRIPTION_INNERHTML = `
   <div class="card-description-wrapper">
