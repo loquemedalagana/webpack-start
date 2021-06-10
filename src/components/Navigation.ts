@@ -1,5 +1,6 @@
 import { Core } from "../util/Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
+import {PostType} from "../types/item";
 
 type NavItemsId = {
   name: string;
@@ -8,7 +9,7 @@ type NavItemsId = {
 
 export class Navigation extends Core<HTMLElement>{
   private $navItems: HTMLElement[];
-  private navItemsName = ['image', 'video', 'note'];
+  private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
   constructor() {
     super(NAVIGATION_INNERHTML);
