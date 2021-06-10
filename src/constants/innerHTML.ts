@@ -42,7 +42,7 @@ export const IMAGE_INNERHTML = `
 export const VIDEO_INNERHTML = `
 <section>
   <div class="card-container">
-  <div class="image-thumbnail-wrapper">
+  <div class="video-player-wrapper">
     <iframe class="video-player" frameborder="0"></iframe>
   </div>
   <div class="card-description-wrapper">
