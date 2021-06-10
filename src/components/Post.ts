@@ -1,11 +1,12 @@
 import { Image } from './Image';
 import { PostItem } from '../types/item';
+import { randomImages, IMAGE_COUNT } from "../constants/images";
 
 export class Post extends Image {
   constructor(postInfo: PostItem) {
     super({
       ...postInfo,
-      url: 'https://musicsseolprise.com/_next/static/images/guitar-50ecaff69e9777ee67ed5b083073bfee.jpg', // 나중에 렌덤으로 바꾸기
+      url: randomImages[Math.floor(Math.random() * IMAGE_COUNT)], // 나중에 렌덤으로 바꾸기
     });
   }
 }
