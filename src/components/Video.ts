@@ -21,7 +21,6 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
     const defaultVideoId = 'OSXOC45wDRA';
     const match = url.match(youtubeRegExp);
     const videoId = match ? match[1] || match[2] : undefined;
-
     return videoId || defaultVideoId;
   }
 
