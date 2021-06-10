@@ -17,11 +17,15 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
     $descriptionElement.innerText = videoInfo.description;
   }
 
-  private convertToEmbeddedURL(url: string): string | undefined {
+  getVideoId (url: string): string | undefined {
     const defaultVideoId = 'OSXOC45wDRA';
     const match = url.match(youtubeRegExp);
     const videoId = match ? match[1] || match[2] : undefined;
 
-    return `https://www.youtube.com/embed/${videoId || defaultVideoId}`;
+    return videoId || defaultVideoId;
+  }
+
+  private convertToEmbeddedURL(url: string): string {
+    return `https://www.youtube.com/embed/${this.getVideoId(url)}`;
   }
 }
