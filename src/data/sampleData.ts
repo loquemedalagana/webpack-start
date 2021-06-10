@@ -1,10 +1,9 @@
 import { PostItem, ImageItem, VideoItem } from '../types/item';
-import { v4 as uuidv4 } from 'uuid';
 
 export const samplePostList: Array<PostItem | VideoItem | ImageItem> = [
   {
     type: "post",
-    id: uuidv4(),
+    id: "100",
     title: '첫번째 노트 제목',
     description: '격하게 아무것도 하기싫다ㅠㅠ',
   },
@@ -18,7 +17,7 @@ export const samplePostList: Array<PostItem | VideoItem | ImageItem> = [
   },
   {
     type: "image",
-    id: uuidv4(),
+    id: "101",
     url: 'https://yt3.ggpht.com/ytc/AAUvwniV3e0j1NQbR2l1RW5C01DNjglP_gjnHuPz8JHM=s800-c-k-c0x00ffffff-no-rj',
     title: 'Jeon Inhyuk Band',
     description: 'Jeon Inhyuk band official image',
@@ -32,7 +31,7 @@ export const samplePostList: Array<PostItem | VideoItem | ImageItem> = [
   },
   {
     type: "post",
-    id: uuidv4(),
+    id: "102",
     title: '두 번째 노트 제목',
     description: '아오 심심해ㅠ 진짜 먹고 살기 힘들다 돈도 없고ㅠㅠ 밥이나먹자',
   },
