@@ -5,7 +5,7 @@ import { Video } from './Video';
 import { Post } from './Post';
 import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
-export class CardWrapper extends Core<HTMLElement> {
+export class CardList extends Core<HTMLElement> {
   constructor() {
     super(CARDWRAPPER_INNERHTML);
 
