@@ -1,8 +1,13 @@
 .card-root {
-
+  flex-direction: column;
 }
 
-.card-container {
+.card-header {
+  background: #fcf8e8;
+  justify-content: space-between;
+}
+
+.card-body {
   background: #fcf8e8;
   display: grid;
 
