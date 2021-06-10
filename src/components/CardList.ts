@@ -7,7 +7,7 @@ import { ImageItem, PostItem, VideoItem } from '../types/item';
 import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
 export class CardList extends Core<HTMLElement> {
-  private postComponentList: Array<Post | Image | Video>; // PostComponent, ImageComponent, VideoComponent
+  private postComponentList: Array<Post | Image | Video>; // Card component로 통합?
 
   constructor() {
     super(CARDWRAPPER_INNERHTML);
@@ -31,7 +31,7 @@ export class CardList extends Core<HTMLElement> {
       const key = localStorage.key(i);
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
-      switch (value.type) {
+      switch (value.type) { // card component로 감싸기!
         case "video":
           extractedPostList.push(new Video(value! as VideoItem));
           break;
