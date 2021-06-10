@@ -25,6 +25,15 @@ export class CardWrapper extends Core<HTMLElement> {
     });
 
     videoTest.attachTo(this.$element, 'beforeend');
+
+    const videoTest2 = new Video({
+      url: 'https://youtu.be/wtTvZH3Q7js',
+      title: '[[전인혁BAND]김종서- ‘대답 없는 너’ Cover by 전인혁BAND',
+      description:
+        '고화질 , 이어폰으로 감상 부탁드립니다.\n\n안녕하세요. 이번엔 연주한 곡은 \n김종서 선배님의 명곡 ‘대답 없는 너’를 연주해봤습니다. \n환절기에 감기 조심하고요, 즐겁게 감상해주세요.^^\n\n',
+    });
+
+    videoTest2.attachTo(this.$element, 'beforeend');
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
