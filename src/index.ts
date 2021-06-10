@@ -1,6 +1,4 @@
 import '../styles/index.scss';
 import { App } from './App';
 
-let app = new App();
-console.log('index.js');
-app.createMain();
+new App(document.querySelector('body')! as HTMLElement);

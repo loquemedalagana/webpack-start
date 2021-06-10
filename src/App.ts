@@ -1,22 +1,29 @@
-export class App {
-  $main: HTMLElement;
+import { Header } from './components/Header';
+import { Body } from './Body';
+import { Footer } from './components/Footer';
+import { samplePostList } from './data/sampleData';
 
-  constructor() {
-    this.$main = document.getElementById('app');
+export class App {
+  private $header: Header;
+  private $body: Body;
+  private $footer: Footer;
+
+  constructor(appRoot: HTMLElement) {
+    this.$header = new Header();
+    this.$body = new Body();
+    this.$footer = new Footer();
+    this.$header.attachTo(appRoot, 'afterbegin');
+    this.$footer.attachTo(appRoot, 'beforeend');
+
+    this.setItemList();
   }
 
-  createMain() {
-    const $message = document.createElement('h1');
-    const band = {
-      vocal: 'Dani Martin',
-      piano: 'Inaki Garcia',
-    };
-    const newBand = {
-      ...band,
-      bass: 'Candy Caramelo',
-    };
-    $message.innerText = `the bassist of the Revetones: ${newBand.bass}`;
-    this.$main.appendChild($message);
-    console.log('App.js');
+  private setItemList() {
+    samplePostList.forEach(samplePost => {
+      const foundValue = localStorage.getItem(samplePost.id);
+      if(foundValue === null) {
+        localStorage.setItem(samplePost.id, JSON.stringify(samplePost));
+      }
+    });
   }
 }

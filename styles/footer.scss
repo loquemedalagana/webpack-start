@@ -1,0 +1,32 @@
+footer {
+  padding: 0.9375rem 0;
+  text-align: center;
+  display: flex;
+  z-index: 2;
+  position: relative;
+
+  background: linear-gradient(0deg, #f7f3e9, #f3f4ed);
+
+  & > a {
+    color: #a1cae2;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color 0.2s linear, color 0.2s linear;
+  }
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 3px;
+}
+
+.copyright-text {
+  font-family: 'Julius Sans One', sans-serif;
+  padding: 15px 0;
+  margin: 0;
+  float: right !important;
+
+
+}
