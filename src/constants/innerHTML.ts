@@ -26,6 +26,12 @@ export const APP_TITLE_INNTERHTML = `
 </div>
 `;
 
+export const CARD_INNERHTML = `
+<li class="card-root">
+
+</li>
+`;
+
 export const IMAGE_INNERHTML = `
 <section>
   <div class="card-container">
@@ -33,6 +39,7 @@ export const IMAGE_INNERHTML = `
     <img class="image image-thumbnail" >
   </div>
   <div class="card-description-wrapper">
+    <h2 class="card-title"></h2>
     <p class="card-description"></p>
   </div>
   </div>
@@ -48,6 +55,7 @@ export const VIDEO_INNERHTML = `
   </div>
   </div>
   <div class="card-description-wrapper">
+    <h2 class="card-title"></h2>
     <p class="card-description"></p>
   </div>
   </div>
@@ -63,8 +71,8 @@ export const FOOTER_INNERHTML = `
 `;
 
 export const CARDWRAPPER_INNERHTML = `
-<div id="card-list-wrapper" class="container container-fluid">
-</div>
+<ul id="card-list-wrapper" class="container container-fluid">
+</ul>
 `;
 
 export const NAVIGATION_INNERHTML = `
