@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Core } from '../util/Core';
 import { Image } from './Image';
 import { Video } from './Video';
+import { Post } from './Post';
 import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
 export class CardWrapper extends Core<HTMLElement> {
@@ -34,6 +35,14 @@ export class CardWrapper extends Core<HTMLElement> {
     });
 
     videoTest2.attachTo(this.$element, 'beforeend');
+
+    const postTest = new Post({
+      id: uuidv4(),
+      title: 'note test',
+      description: '격하게 아무것도 하기싫다ㅠㅠ',
+    });
+
+    postTest.attachTo(this.$element, 'beforeend');
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
