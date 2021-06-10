@@ -18,7 +18,7 @@ export class CardWrapper extends Core<HTMLElement> {
     imageTest.attachTo(this.$element, 'afterbegin');
 
     const videoTest = new Video({
-      id: 'TRZl3cVTwAY',
+      url: 'https://www.youtube.com/watch?v=TRZl3cVTwAY',
       title: '[전인혁BAND]신성우- ‘서 시’ Cover by 전인혁BAND',
       description:
         '고화질 , 이어폰으로 감상 부탁드립니다.\n\n안녕하세요. \n이번엔 저희가 연주한 곡은 \n신성우 선배님의 명곡 ‘서시’ 입니다.\n명절 잘 보내시고요, 즐겁게 감상해주세요~\n새해 복 많이 받으세요.^^\n\n',
