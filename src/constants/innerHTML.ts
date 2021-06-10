@@ -28,38 +28,37 @@ export const APP_TITLE_INNTERHTML = `
 
 export const CARD_INNERHTML = `
 <li class="card-root">
-
+  <div class="card-header">
+    <h2 class="card-title"></h2>
+    <div class="card-control">
+      <button class="card-close-button">&times;</button>
+    </div>
+  </div>
+  <section>
+      <div class="card-body">
+      </div>
+  </section>
 </li>
 `;
 
-export const IMAGE_INNERHTML = `
-<section>
-  <div class="card-container">
-  <div class="card-media-wrapper image-thumbnail-wrapper">
-    <img class="image image-thumbnail" >
-  </div>
+export const CARD_DESCRIPTION_INNERHTML = `
   <div class="card-description-wrapper">
-    <h2 class="card-title"></h2>
     <p class="card-description"></p>
   </div>
-  </div>
-</section>
+`;
+
+export const IMAGE_INNERHTML = `
+<div class="card-media-wrapper image-thumbnail-wrapper">
+  <img class="image image-thumbnail" >
+</div>
 `;
 
 export const VIDEO_INNERHTML = `
-<section>
-  <div class="card-container">
-  <div class="card-media-wrapper">
-    <div class="video-player-wrapper">
+<div class="card-media-wrapper">
+  <div class="video-player-wrapper">
     <iframe class="video-player" frameborder="0"></iframe>
   </div>
-  </div>
-  <div class="card-description-wrapper">
-    <h2 class="card-title"></h2>
-    <p class="card-description"></p>
-  </div>
-  </div>
-</section>
+</div>
 `;
 
 export const HEADER_INNERHTML = `
