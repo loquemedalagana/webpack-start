@@ -12,9 +12,6 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
 
     const $videoElement = this.$element.querySelector('.video-player')! as HTMLIFrameElement;
     $videoElement.src = this.videoURL;
-
-    const $descriptionElement = this.$element.querySelector('.card-description')! as HTMLElement;
-    $descriptionElement.innerText = videoInfo.description;
   }
 
   getVideoId (url: string): string | undefined {

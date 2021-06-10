@@ -10,9 +10,6 @@ export class Image extends Core<HTMLElement | HTMLImageElement> {
 
     $imageElement.src = imageInfo.url;
     $imageElement.alt = imageInfo.title;
-
-    const $descriptionElement = this.$element.querySelector('.card-description')! as HTMLElement;
-    $descriptionElement.innerText = imageInfo.description;
   }
 
 }

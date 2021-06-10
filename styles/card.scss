@@ -1,4 +1,21 @@
-.card-container {
+.card-root {
+  flex-direction: column;
+}
+
+.card-header {
+  background: #fcf8e8;
+  justify-content: space-between;
+}
+
+.card-control {
+
+}
+
+.card-close-button {
+
+}
+
+.card-body {
   background: #fcf8e8;
   display: grid;
 
@@ -29,6 +46,10 @@
     align-content: space-between;
     align-items: stretch;
   }
+}
+
+.card-title {
+
 }
 
 .card-description {

@@ -6,42 +6,56 @@ import { Post } from './Post';
 import { ImageItem, PostItem, VideoItem } from '../types/item';
 import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
+import { Card } from './Card';
+import { CardHeader } from './CardHeader';
+import { CardDescription } from './CardDescription';
+
 export class CardList extends Core<HTMLElement> {
-  private postComponentList: Array<Post | Image | Video>; // PostComponent, ImageComponent, VideoComponent
+  private postComponentList: Array<Post | Image | Video>; // Card component로 통합?
 
   constructor() {
     super(CARDWRAPPER_INNERHTML);
     this.postComponentList = this.getLocalStorageData();
     console.log(this.postComponentList);
 
-    this.postComponentList.forEach(component => {
-      component.attachTo(this.$element, "beforeend");
-    })
+    this.postComponentList.forEach((component) => {
+      component.attachTo(this.$element, 'beforeend');
+    });
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
     parent.insertAdjacentElement(position, this.$element);
   }
 
+  private getMediaComponent(postData: ImageItem | VideoItem | PostItem): Image | Video | Post {
+    switch (postData.type) {
+      case 'video':
+        return new Video(postData! as VideoItem);
+      case 'post':
+        return new Post(postData! as PostItem);
+      case 'image':
+        return new Image(postData! as ImageItem);
+    }
+  }
+
   private getLocalStorageData() {
     const POST_LIST_LENGTH = localStorage.length;
-    const extractedPostList: Array<Post | Image | Video> = [];
+    const extractedPostList: Array<Card> = [];
 
     for (let i = 0; i < POST_LIST_LENGTH; i++) {
       const key = localStorage.key(i);
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
-      switch (value.type) {
-        case "video":
-          extractedPostList.push(new Video(value! as VideoItem));
-          break;
-        case "post":
-          extractedPostList.push(new Post(value! as PostItem));
-          break;
-        case "image":
-          extractedPostList.push(new Image(value! as ImageItem));
-          break;
-      }
+      const cardComponent = new Card();
+      const cardHeaderComponent = new CardHeader(value.title)
+      const mediaComponent = this.getMediaComponent(value);
+      const cardDescriptionComponent = new CardDescription(value.description);
+
+      cardComponent.addChild(cardHeaderComponent, 'header');
+      cardComponent.addChild(mediaComponent, 'media');
+      cardComponent.addChild(cardDescriptionComponent, 'description');
+
+      extractedPostList.push(cardComponent);
     }
 
     return extractedPostList;
