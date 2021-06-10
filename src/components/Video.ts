@@ -9,8 +9,8 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement>{
     super(VIDEO_INNERHTML);
     this.videoURL = `https://www.youtube.com/embed/${videoInfo.id}`;
 
-    const $videoElement = this.$element.querySelector('video-player')! as HTMLElement; // changed to iframe element
-    $videoElement.innerText = videoInfo.id;
+    const $videoElement = this.$element.querySelector('.video-player')! as HTMLIFrameElement;
+    $videoElement.src = this.videoURL;
 
     const $descriptionElement = this.$element.querySelector('.card-description')! as HTMLElement;
     $descriptionElement.innerText = videoInfo.description;
