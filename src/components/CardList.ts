@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Core } from '../util/Core';
+import { Component, Core } from "../util/Core";
 import { Image } from './Image';
 import { Video } from './Video';
 import { Post } from './Post';
@@ -10,7 +10,11 @@ import { Card } from './Card';
 import { CardHeader } from './CardHeader';
 import { CardDescription } from './CardDescription';
 
-export class CardList extends Core<HTMLElement> {
+export interface Composable {
+  addChild(child: Component): void;
+}
+
+export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<Post | Image | Video>; // Card component로 통합?
 
   constructor() {
@@ -59,5 +63,9 @@ export class CardList extends Core<HTMLElement> {
     }
 
     return extractedPostList;
+  }
+
+  addChild(child: Component) {
+    // ..?? 구현체를 쓰자!!!
   }
 }

@@ -1,7 +1,8 @@
 import { Component, Core } from '../util/Core';
 import { CARD_INNERHTML } from '../constants/innerHTML';
+import { Composable } from './CardList';
 
-export class Card extends Core<HTMLElement> {
+export class Card extends Core<HTMLElement> implements Composable {
   constructor() {
     super(CARD_INNERHTML);
   }
