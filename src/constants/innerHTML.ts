@@ -39,6 +39,21 @@ export const IMAGE_INNERHTML = `
 </section>
 `;
 
+export const VIDEO_INNERHTML = `
+<section>
+  <div class="card-container">
+  <div class="card-media-wrapper">
+    <div class="video-player-wrapper">
+    <iframe class="video-player" frameborder="0"></iframe>
+  </div>
+  </div>
+  <div class="card-description-wrapper">
+    <p class="card-description"></p>
+  </div>
+  </div>
+</section>
+`;
+
 export const HEADER_INNERHTML = `
 <header class="appbar appbar-main-color"></header>
 `;

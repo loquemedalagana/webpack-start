@@ -8,6 +8,6 @@ export type ImageItem = PostItem & {
   url: string;
 }
 
-export type VideoItem = PostItem & {
-  videoId: string;
-}
+export type VideoItem = Partial<PostItem> & {
+  url: string;
+};
