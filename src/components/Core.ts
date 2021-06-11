@@ -16,4 +16,16 @@ export class Core<T extends HTMLElement> {
   attachTo(parent: HTMLElement, position: InsertPosition) {
     parent.insertAdjacentElement(position, this.$element);
   }
+
+  removeFrom(parent: HTMLElement) {
+    if (parent !== this.$element.parentElement) {
+      throw new Error('mismatched parentcomponent!');
+    }
+
+    parent.removeChild(this.$element);
+
+    if (this.$element.id) {
+      localStorage.removeItem(this.$element.id);
+    }
+  }
 }
