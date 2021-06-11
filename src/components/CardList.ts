@@ -1,5 +1,5 @@
 import {
-  ClosableComponent,
+  ClosableComponent, ClosableHeaderComponentConstructor,
   CloseableComponentConstructor,
   Component,
   Composable,
@@ -18,7 +18,10 @@ import { CardDescription } from "./Card/CardDescription";
 export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<ClosableComponent>; // Card component로 통합?
 
-  constructor(private cardConstructor: CloseableComponentConstructor) {
+  constructor(
+    private cardConstructor: CloseableComponentConstructor,
+    private cardHeaderConstructor: ClosableHeaderComponentConstructor,
+  ) {
     super(CARDWRAPPER_INNERHTML);
     this.postComponentList = this.getLocalStorageData();
 
@@ -53,7 +56,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const cardComponent = new this.cardConstructor(value.id);
       const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
-      const cardHeaderComponent = new CardHeader(value, onCloseListener);
+      const cardHeaderComponent = new this.cardHeaderConstructor(value, onCloseListener);
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
