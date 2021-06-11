@@ -1,18 +1,13 @@
-import { v4 as uuidv4 } from 'uuid';
-import { Component, Core } from './Core';
-import { Image } from './Image';
-import { Video } from './Video';
-import { Post } from './Post';
-import { ImageItem, PostItem, PostType, VideoItem, ComponentType } from "../types/item";
-import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
+import { Component, Composable, Core } from "./Core";
+import { Image } from "./Image";
+import { Video } from "./Video";
+import { Post } from "./Post";
+import { ImageItem, PostItem, VideoItem } from "../types/item";
+import { CARDWRAPPER_INNERHTML } from "../constants/innerHTML";
 
-import { Card } from './Card';
-import { CardHeader } from './CardHeader';
-import { CardDescription } from './CardDescription';
-
-export interface Composable {
-  addChild(child: Component, id?: string, type?: ComponentType): void;
-}
+import { Card } from "./Card";
+import { CardHeader } from "./CardHeader";
+import { CardDescription } from "./CardDescription";
 
 export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<Post | Image | Video>; // Card component로 통합?
@@ -66,4 +61,8 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
+  addChild(child: Component, id: string) {
+    const cardComponent = new Card(id);
+
+  }
 }
