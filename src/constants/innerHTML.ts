@@ -27,7 +27,7 @@ export const APP_TITLE_INNTERHTML = `
 `;
 
 export const CARD_INNERHTML = `
-<li >
+<li class="card">
   <section class="card-root">
     <div class="card-body">
     </div>
