@@ -19,11 +19,13 @@ export class App {
   }
 
   private setItemList() {
-    samplePostList.forEach(samplePost => {
-      const foundValue = localStorage.getItem(samplePost.id);
-      if(foundValue === null) {
-        localStorage.setItem(samplePost.id, JSON.stringify(samplePost));
-      }
-    });
+    if(localStorage.length === 0) {
+      samplePostList.forEach(samplePost => {
+        const foundValue = localStorage.getItem(samplePost.id);
+        if(foundValue === null) {
+          localStorage.setItem(samplePost.id, JSON.stringify(samplePost));
+        }
+      });
+    }
   }
 }
