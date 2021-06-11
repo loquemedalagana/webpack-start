@@ -1,4 +1,10 @@
-import { Component, Composable, Core } from "./Core";
+import {
+  ClosableComponent,
+  CloseableComponentConstructor,
+  Component,
+  Composable,
+  Core
+} from "./Core";
 import { Image } from "./Image";
 import { Video } from "./Video";
 import { Post } from "./Post";
@@ -10,9 +16,9 @@ import { CardHeader } from "./CardHeader";
 import { CardDescription } from "./CardDescription";
 
 export class CardList extends Core<HTMLElement> implements Composable {
-  private postComponentList: Array<Post | Image | Video>; // Card component로 통합?
+  private postComponentList: Array<ClosableComponent>; // Card component로 통합?
 
-  constructor() {
+  constructor(private cardConstructor: CloseableComponentConstructor) {
     super(CARDWRAPPER_INNERHTML);
     this.postComponentList = this.getLocalStorageData();
 
@@ -38,13 +44,13 @@ export class CardList extends Core<HTMLElement> implements Composable {
 
   private getLocalStorageData() {
     const POST_LIST_LENGTH = localStorage.length;
-    const extractedPostList: Array<Card> = [];
+    const extractedPostList: Array<ClosableComponent> = [];
 
     for (let i = 0; i < POST_LIST_LENGTH; i++) {
       const key = localStorage.key(i);
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
-      const cardComponent = new Card(value.id);
+      const cardComponent = new this.cardConstructor(value.id);
       const cardHeaderComponent = new CardHeader(value.id, value.title);
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
@@ -53,7 +59,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
       cardComponent.addChild(mediaComponent, 'card-media');
       cardComponent.addChild(cardDescriptionComponent, 'card-description');
 
-      cardHeaderComponent.setOnCloseLister(() => cardComponent.removeFrom(this.$element));
+      cardComponent.setOnCloseListener(() => cardComponent.removeFrom(this.$element));
 
       extractedPostList.push(cardComponent);
     }

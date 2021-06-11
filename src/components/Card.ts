@@ -1,8 +1,11 @@
-import { Component, Composable, Core } from "./Core";
+import { Component, Composable, Core, ClosableComponent } from "./Core";
 import { CARD_INNERHTML } from '../constants/innerHTML';
 import { ComponentType } from "../types/item";
+import { OnCloseLister } from "../types/eventlistener";
 
-export class Card extends Core<HTMLElement> implements Composable {
+export class Card extends Core<HTMLElement> implements ClosableComponent {
+  protected handleClose?: OnCloseLister;
+
   constructor(id: string) {
     super(CARD_INNERHTML);
     this.$element.id = id;
@@ -18,5 +21,9 @@ export class Card extends Core<HTMLElement> implements Composable {
     } else {
       child.attachTo($container, type === 'card-media' ? 'afterbegin' : 'beforeend');
     }
+  }
+
+  setOnCloseListener(listener: OnCloseLister) {
+    this.handleClose = listener;
   }
 }
