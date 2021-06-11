@@ -1,7 +1,6 @@
-import { Core } from './Core';
-import { CARD_HEADER_INNERHTML } from '../constants/innerHTML';
-
-type OnCloseLister = () => void;
+import { Core } from "./Core";
+import { CARD_HEADER_INNERHTML } from "../constants/innerHTML";
+import { OnCloseLister } from "../types/eventlistener";
 
 export class CardHeader extends Core<HTMLElement> {
   private handleClose?: OnCloseLister;
