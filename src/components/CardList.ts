@@ -20,7 +20,6 @@ export class CardList extends Core<HTMLElement> implements Composable {
   constructor() {
     super(CARDWRAPPER_INNERHTML);
     this.postComponentList = this.getLocalStorageData();
-    console.log(this.postComponentList);
 
     this.postComponentList.forEach((component) => {
       component.attachTo(this.$element, 'beforeend');
@@ -50,8 +49,8 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const key = localStorage.key(i);
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
-      const cardComponent = new Card();
-      const cardHeaderComponent = new CardHeader(value.title)
+      const cardComponent = new Card(value.id);
+      const cardHeaderComponent = new CardHeader(value.id, value.title)
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
