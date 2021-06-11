@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Component, Core } from "./Core";
+import { Component, Core } from './Core';
 import { Image } from './Image';
 import { Video } from './Video';
 import { Post } from './Post';
@@ -50,13 +50,15 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
       const cardComponent = new Card(value.id);
-      const cardHeaderComponent = new CardHeader(value.id, value.title)
+      const cardHeaderComponent = new CardHeader(value.id, value.title);
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
       cardComponent.addChild(cardHeaderComponent, 'header');
       cardComponent.addChild(mediaComponent, 'media');
       cardComponent.addChild(cardDescriptionComponent, 'description');
+
+      cardHeaderComponent.setOnCloseLister(() => cardComponent.removeFrom(this.$element));
 
       extractedPostList.push(cardComponent);
     }
