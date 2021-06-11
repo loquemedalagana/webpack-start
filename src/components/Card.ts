@@ -1,6 +1,5 @@
-import { Component, Core } from './Core';
+import { Component, Composable, Core } from "./Core";
 import { CARD_INNERHTML } from '../constants/innerHTML';
-import { Composable } from './CardList';
 import { ComponentType } from "../types/item";
 
 export class Card extends Core<HTMLElement> implements Composable {

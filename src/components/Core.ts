@@ -1,5 +1,11 @@
+import { ComponentType } from "../types/item";
+
 export interface Component {
   attachTo(parent: HTMLElement, position: InsertPosition): void;
+}
+
+export interface Composable {
+  addChild(child: Component, id?: string, type?: ComponentType): void;
 }
 
 export class Core<T extends HTMLElement> {
