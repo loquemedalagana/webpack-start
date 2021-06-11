@@ -9,13 +9,13 @@ export class Card extends Core<HTMLElement> implements Composable {
 
   addChild(child: Component, type?: 'media' | 'description' | 'header') {
     // 참고: Core.ts
-    const root = this.$element.querySelector('.card-root') as HTMLElement;
-    const container = this.$element.querySelector('.card-body') as HTMLElement;
+    const $root = this.$element.querySelector('.card-root') as HTMLElement;
+    const $container = this.$element.querySelector('.card-body') as HTMLElement;
 
     if (type === 'header') {
-      child.attachTo(root, 'afterbegin');
+      child.attachTo($root, 'afterbegin');
     } else {
-      child.attachTo(container, type === 'media' ? 'afterbegin' : 'beforeend');
+      child.attachTo($container, type === 'media' ? 'afterbegin' : 'beforeend');
     }
   }
 }
