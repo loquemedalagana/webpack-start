@@ -8,6 +8,10 @@
   z-index: 2020;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .modal-container {
   position: absolute;
   border-radius: 7px;
@@ -37,5 +41,9 @@
 }
 
 .modal-action {
+
+}
+
+.modal-action-button {
 
 }
