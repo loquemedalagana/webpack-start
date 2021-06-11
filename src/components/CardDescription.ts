@@ -1,4 +1,4 @@
-import { Core } from '../util/Core';
+import { Core } from './Core';
 import { CARD_DESCRIPTION_INNERHTML } from '../constants/innerHTML';
 
 export class CardDescription extends Core<HTMLElement> {

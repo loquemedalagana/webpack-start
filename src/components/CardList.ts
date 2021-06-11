@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Component, Core } from "../util/Core";
+import { Component, Core } from "./Core";
 import { Image } from './Image';
 import { Video } from './Video';
 import { Post } from './Post';

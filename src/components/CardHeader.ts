@@ -1,4 +1,4 @@
-import { Core } from '../util/Core';
+import { Core } from './Core';
 import { CARD_HEADER_INNERHTML } from '../constants/innerHTML';
 
 type OnCloseLister = () => void;

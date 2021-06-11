@@ -1,4 +1,4 @@
-import { Core } from '../util/Core';
+import { Core } from './Core';
 import { ImageItem } from '../types/item';
 import { IMAGE_INNERHTML } from '../constants/innerHTML';
 

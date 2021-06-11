@@ -1,4 +1,4 @@
-import { Core } from "../util/Core";
+import { Core } from "./Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
 import {PostType} from "../types/item";
 

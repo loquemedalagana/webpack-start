@@ -1,4 +1,4 @@
-import { Component, Core } from '../util/Core';
+import { Component, Core } from './Core';
 import { CARD_INNERHTML } from '../constants/innerHTML';
 import { Composable } from './CardList';
 

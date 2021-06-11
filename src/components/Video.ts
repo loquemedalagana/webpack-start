@@ -1,4 +1,4 @@
-import { Core } from '../util/Core';
+import { Core } from './Core';
 import { VideoItem } from '../types/item';
 import { VIDEO_INNERHTML } from '../constants/innerHTML';
 import { youtubeRegExp } from '../constants/regExp';
