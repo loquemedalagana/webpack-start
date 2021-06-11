@@ -51,10 +51,12 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const value = JSON.parse(localStorage.getItem(key))! as ImageItem | VideoItem | PostItem;
 
       const cardComponent = new this.cardConstructor(value.id);
-      const cardHeaderComponent = new CardHeader(value);
+      const onCloseListener = () => cardComponent.removeFrom(this.$element);
+
+      const cardHeaderComponent = new CardHeader(value, onCloseListener);
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
-      const onCloseListener = () => cardComponent.removeFrom(this.$element);
+
 
       cardComponent.addChild(cardHeaderComponent, 'card-header');
       cardComponent.addChild(mediaComponent, 'card-media');
