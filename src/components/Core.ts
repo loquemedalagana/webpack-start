@@ -1,5 +1,8 @@
 import { ComponentType } from "../types/item";
 import { OnCloseLister } from "../types/eventlistener";
+import { Video } from "./Video";
+import { Post } from "./Post";
+import { Image } from "./Image";
 
 export interface Component {
   attachTo(parent: HTMLElement, position: InsertPosition): void;
@@ -8,6 +11,10 @@ export interface Component {
 
 export interface Composable {
   addChild(child: Component, id?: string, type?: ComponentType): void;
+}
+
+export interface MediaComposable {
+  getMediaComponent(postData: ImageItem | VideoItem | PostItem): void;
 }
 
 export interface ClosableComponent extends Composable, Component {
@@ -42,6 +49,23 @@ export class Core<T extends HTMLElement> implements Component {
 
     if (this.$element.id) {
       localStorage.removeItem(this.$element.id);
+    }
+  }
+}
+
+export class MediaBaseCore extends Core<HTMLElement> implements MediaComposable {
+  constructor(htmlString: string) {
+    super(htmlString);
+  }
+
+  getMediaComponent(postData: ImageItem | VideoItem | PostItem) {
+    switch (postData.type) {
+      case 'video':
+        return new Video(postData! as VideoItem);
+      case 'post':
+        return new Post(postData! as PostItem);
+      case 'image':
+        return new Image(postData! as ImageItem);
     }
   }
 }
