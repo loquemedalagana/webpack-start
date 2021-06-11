@@ -3,7 +3,7 @@ import { Component, Core } from './Core';
 import { Image } from './Image';
 import { Video } from './Video';
 import { Post } from './Post';
-import { ImageItem, PostItem, VideoItem } from '../types/item';
+import { ImageItem, PostItem, PostType, VideoItem, ComponentType } from "../types/item";
 import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
 import { Card } from './Card';
@@ -11,7 +11,7 @@ import { CardHeader } from './CardHeader';
 import { CardDescription } from './CardDescription';
 
 export interface Composable {
-  addChild(child: Component): void;
+  addChild(child: Component, id?: string, type?: ComponentType): void;
 }
 
 export class CardList extends Core<HTMLElement> implements Composable {
@@ -54,9 +54,9 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
-      cardComponent.addChild(cardHeaderComponent, 'header');
-      cardComponent.addChild(mediaComponent, 'media');
-      cardComponent.addChild(cardDescriptionComponent, 'description');
+      cardComponent.addChild(cardHeaderComponent, 'card-header');
+      cardComponent.addChild(mediaComponent, 'card-media');
+      cardComponent.addChild(cardDescriptionComponent, 'card-description');
 
       cardHeaderComponent.setOnCloseLister(() => cardComponent.removeFrom(this.$element));
 
@@ -66,7 +66,4 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  addChild(child: Component) {
-    // ..?? 구현체를 쓰자!!!
-  }
 }

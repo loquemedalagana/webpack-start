@@ -1,6 +1,7 @@
 import { Component, Core } from './Core';
 import { CARD_INNERHTML } from '../constants/innerHTML';
 import { Composable } from './CardList';
+import { ComponentType } from "../types/item";
 
 export class Card extends Core<HTMLElement> implements Composable {
   constructor(id: string) {
@@ -8,15 +9,15 @@ export class Card extends Core<HTMLElement> implements Composable {
     this.$element.id = id;
   }
 
-  addChild(child: Component, type?: 'media' | 'description' | 'header') {
+  addChild(child: Component, type?: ComponentType) {
     // 참고: Core.ts
     const $root = this.$element.querySelector('.card-root')! as HTMLElement;
     const $container = this.$element.querySelector('.card-body')! as HTMLElement;
 
-    if (type === 'header') {
+    if (type === 'card-header') {
       child.attachTo($root, 'afterbegin');
     } else {
-      child.attachTo($container, type === 'media' ? 'afterbegin' : 'beforeend');
+      child.attachTo($container, type === 'card-media' ? 'afterbegin' : 'beforeend');
     }
   }
 }
