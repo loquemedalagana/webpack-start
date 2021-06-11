@@ -1,5 +1,5 @@
 import { CardList } from './components/CardList';
-import { Card } from './components/Card';
+import { Card } from './components/Card/Card';
 
 export class Body {
   private $element: HTMLElement;

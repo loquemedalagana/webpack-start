@@ -1,5 +1,5 @@
-import { Core } from './Core';
-import { CARD_DESCRIPTION_INNERHTML } from '../constants/innerHTML';
+import { Core } from '../Core';
+import { CARD_DESCRIPTION_INNERHTML } from '../../constants/innerHTML';
 
 export class CardDescription extends Core<HTMLElement> {
   constructor(description?: string) {

@@ -1,7 +1,7 @@
-import { Component, Composable, Core, ClosableComponent } from "./Core";
-import { CARD_INNERHTML } from '../constants/innerHTML';
-import { ComponentType } from "../types/item";
-import { OnCloseLister } from "../types/eventlistener";
+import { Component, Composable, Core, ClosableComponent } from "../Core";
+import { CARD_INNERHTML } from '../../constants/innerHTML';
+import { ComponentType } from "../../types/item";
+import { OnCloseLister } from "../../types/eventlistener";
 
 export class Card extends Core<HTMLElement> implements ClosableComponent {
   protected handleClose?: OnCloseLister;

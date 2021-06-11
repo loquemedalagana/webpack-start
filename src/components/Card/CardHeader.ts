@@ -1,7 +1,7 @@
-import { Core } from './Core';
-import { CARD_HEADER_INNERHTML } from '../constants/innerHTML'
-import { ImageItem, PostItem, VideoItem } from '../types/item';
-import { OnCloseLister } from "../types/eventlistener";
+import { Core } from '../Core';
+import { CARD_HEADER_INNERHTML } from '../../constants/innerHTML'
+import { ImageItem, PostItem, VideoItem } from '../../types/item';
+import { OnCloseLister } from "../../types/eventlistener";
 
 export class CardHeader extends Core<HTMLElement> {
   constructor(postData: ImageItem | VideoItem | PostItem, onClose?: OnCloseLister) {

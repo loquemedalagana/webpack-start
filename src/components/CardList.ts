@@ -11,9 +11,9 @@ import { Post } from "./Post";
 import { ImageItem, PostItem, VideoItem } from "../types/item";
 import { CARDWRAPPER_INNERHTML } from "../constants/innerHTML";
 
-import { Card } from "./Card";
-import { CardHeader } from "./CardHeader";
-import { CardDescription } from "./CardDescription";
+import { Card } from "./Card/Card";
+import { CardHeader } from "./Card/CardHeader";
+import { CardDescription } from "./Card/CardDescription";
 
 export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<ClosableComponent>; // Card component로 통합?
