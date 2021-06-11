@@ -4,6 +4,8 @@ import { Video } from "./Video";
 import { Post } from "./Post";
 import { Image } from "./Image";
 
+/* interfaces */
+
 export interface Component {
   attachTo(parent: HTMLElement, position: InsertPosition): void;
   removeFrom(parent: HTMLElement): void;
@@ -25,6 +27,12 @@ export interface InteractiveComponent {
 
 }
 
+/* types for dependency injection */
+
+export type MediaComponentConstructor = {
+  new (mediaInfo: ImageItem | VideoItem | PostItem): MediaComposable;
+}
+
 export type CloseableComponentConstructor = {
   new (id: string): ClosableComponent;
 };
@@ -32,6 +40,8 @@ export type CloseableComponentConstructor = {
 export type ClosableHeaderComponentConstructor = {
   new (postData: ImageItem | VideoItem | PostItem, onClose?: OnCloseLister): Component;
 }
+
+/* base components */
 
 export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
@@ -61,7 +71,7 @@ export class Core<T extends HTMLElement> implements Component {
   }
 }
 
-export class MediaBaseCore extends Core<HTMLElement> implements MediaComposable {
+export class MediaBaseComponent extends Core<HTMLElement> implements MediaComposable {
   constructor(htmlString: string) {
     super(htmlString);
   }
