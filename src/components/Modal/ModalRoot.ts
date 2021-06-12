@@ -5,6 +5,7 @@ import {
   ClosableHeaderComponentConstructor,
 } from '../Core';
 import { ModalType, PostDataType, PostType } from "../../types/item";
+import { ModalAction } from "./ModalAction";
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
@@ -38,8 +39,14 @@ export class ModalRoot implements Composable {
       modalType === 'view-post-detail' ? postData : `add ${newPostType}`,
       removeModal,
     );
+    const newModalAction = new ModalAction();
+    const modalChildren = [newModalHeader];
 
-    newModal.addChildren([newModalHeader]);
+    if(modalType === 'add-card') {
+      modalChildren.push(newModalAction);
+    }
+
+    newModal.addChildren(modalChildren);
 
     this.addChildren([newModal], postData);
   }
