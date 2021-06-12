@@ -4,7 +4,7 @@ import {
   Component,
   ClosableHeaderComponentConstructor,
 } from '../Core';
-import { ModalType, PostDataType } from '../../types/item';
+import { ModalType, PostDataType, PostType } from "../../types/item";
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
@@ -30,12 +30,12 @@ export class ModalRoot implements Composable {
     child.attachTo(this.$modalRoot, 'beforeend');
   }
 
-  openModal(postData?: PostDataType) {
+  openModal(postData?: PostDataType, newPostType?: PostType) {
     const newModal = new this.modalComponentConstructor(postData);
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const newModalHeader = new this.modalHeaderConstructor(
-      modalType === 'view-post-detail' ? postData : '모달 제목',
+      modalType === 'view-post-detail' ? postData : `add ${newPostType}`,
       removeModal,
     );
 

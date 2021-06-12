@@ -10,6 +10,7 @@ export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   constructor() {
     super(MODAL_INNERHTML);
     this.$modalContainer = this.$element.querySelector('.modal-container')! as HTMLElement;
+    this.$modalContainer.classList.remove('hidden');
   }
 
   addChildren(children: Component[]) {

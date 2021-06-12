@@ -26,7 +26,7 @@ export class Navigation extends Core<HTMLElement> implements ModalControllable {
       $navButtonElement.setAttribute('class', 'button-transparent nav-button');
       $navButtonElement.innerText = itemTitle;
 
-      $navButtonElement.onclick = () => console.log(itemTitle);
+      $navButtonElement.onclick = () => this.modalRootComponent.openModal(undefined, itemTitle);
 
       $navItemElement.appendChild($navButtonElement);
 
