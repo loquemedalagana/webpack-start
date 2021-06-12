@@ -22,8 +22,8 @@ export interface ClosableComponent extends Composable, Component {
   setOnCloseListener(listener: OnCloseLister): void;
 }
 
-export interface InteractiveComponent {
-
+export interface InteractiveComponent extends ClosableComponent {
+  setOnSubmitListener(listener: OnCloseLister): void;
 }
 
 export type CloseableComponentConstructor = {
