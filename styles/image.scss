@@ -1,0 +1,15 @@
+.image {
+  width: 100%;
+}
+
+.image-thumbnail {
+  border-radius: 6px !important;
+}
+
+.image-thumbnail-wrapper {
+  transition: opacity 0.2s linear, color 0.2s linear;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

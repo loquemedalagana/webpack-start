@@ -1,14 +1,13 @@
-import { COPYRIGHT_INNERHTML } from "../constants/innerHTML";
+import { Core } from './Core';
+import { COPYRIGHT_INNERHTML, FOOTER_INNERHTML } from '../constants/innerHTML';
 
-export class Footer {
-  private $footerWrapper: HTMLElement;
-
+export class Footer extends Core<HTMLElement>{
   constructor() {
-    this.$footerWrapper = document.createElement('footer');
-    this.$footerWrapper.innerHTML = COPYRIGHT_INNERHTML;
+    super(FOOTER_INNERHTML);
+    this.$element.innerHTML = COPYRIGHT_INNERHTML;
   }
 
-  attachFooter(parent: HTMLElement, position: InsertPosition = 'beforeend') {
-    parent.insertAdjacentElement(position, this.$footerWrapper);
+  attachTo(parent: HTMLElement, position: InsertPosition = 'beforeend') {
+    parent.insertAdjacentElement(position, this.$element);
   }
 }

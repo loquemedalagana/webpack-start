@@ -1,19 +1,21 @@
+import { Core } from "./Core";
+import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
+import {PostType} from "../types/item";
+
 type NavItemsId = {
   name: string;
   id: string;
-}
+};
 
-export class Navigation {
-  private $element: HTMLElement;
+export class Navigation extends Core<HTMLElement>{
   private $navItems: HTMLElement[];
-  private navItemsName = ['image', 'video', 'note'];
+  private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
   constructor() {
-    this.$element = document.createElement('ul');
-    this.$element.setAttribute('class', 'nav');
-    this.$navItems = this.createNavItems();
+    super(NAVIGATION_INNERHTML);
 
-    this.$navItems.forEach($navItem => {
+    this.$navItems = this.createNavItems();
+    this.$navItems.forEach(($navItem) => {
       this.$element.appendChild($navItem);
     });
   }
@@ -33,7 +35,4 @@ export class Navigation {
     });
   }
 
-  attachNavigation(parent: HTMLElement, position: InsertPosition = "beforeend") {
-    parent.insertAdjacentElement(position, this.$element);
-  }
 }
