@@ -5,11 +5,11 @@ import { MODAL_INNERHTML } from '../../constants/innerHTML';
 export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   protected handleClose?: OnCloseLister;
   protected handleSubmit?: OnSubmitListener;
-  private $modalRoot: HTMLElement;
+  private $modalContainer: HTMLElement;
 
   constructor() {
     super(MODAL_INNERHTML);
-    this.$modalRoot = this.$element.querySelector('.modal-container')! as HTMLElement;
+    this.$modalContainer = this.$element.querySelector('.modal-container')! as HTMLElement;
   }
 
   addChildren(children: Component[]) {
