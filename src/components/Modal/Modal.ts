@@ -20,13 +20,16 @@ export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   addChildren(children: Component[]) {
     const $root = this.$element.querySelector('.modal-container')! as HTMLElement;
     const $body = this.$element.querySelector('.card-body')! as HTMLElement;
+    const $form = this.$element.querySelector('.modal-form')! as HTMLFormElement;
 
     children.forEach((child) => {
       const { type } = child;
       if (type === 'header') {
         child.attachTo($root, 'afterbegin');
       } else if(type === 'footer') {
-        child.attachTo($root, 'beforeend');
+        child.attachTo($form, 'beforeend');
+      } else if(type === 'form') {
+        child.attachTo($form, 'afterbegin');
       } else {
         child.attachTo($body, 'beforeend');
       }
