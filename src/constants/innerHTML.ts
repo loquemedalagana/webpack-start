@@ -84,7 +84,7 @@ export const NAVIGATION_INNERHTML = `
 
 export const MODAL_INNERHTML = `
 <div class="modal-wrapper">
-  <div class="modal-root hidden">
+  <div class="modal-container hidden">
     <div class="modal-body"></div>
   </div>
 </div>

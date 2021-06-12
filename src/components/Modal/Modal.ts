@@ -13,7 +13,7 @@ export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   }
 
   addChildren(children: Component[]) {
-    const $root = this.$element.querySelector('.modal-root')! as HTMLElement;
+    const $root = this.$element.querySelector('.modal-container')! as HTMLElement;
     const $body = this.$element.querySelector('.card-body')! as HTMLElement;
 
     children.forEach((child) => {
