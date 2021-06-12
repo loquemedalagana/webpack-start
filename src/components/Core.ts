@@ -29,8 +29,9 @@ export type ClosableHeaderComponentConstructor = {
 
 export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
+  readonly type?: ComponentType;
 
-  constructor(htmlString: string) {
+  constructor(htmlString: string, type?: ComponentType) {
     const template = document.createElement('template');
     template.innerHTML = htmlString;
     // console.log(htmlString);
