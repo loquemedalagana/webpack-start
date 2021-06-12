@@ -8,7 +8,7 @@ export interface Component {
 }
 
 export interface Composable {
-  addChild(child: Component, type?: ComponentType): void;
+  addChild(children: Component[], id?: string): void;
 }
 
 export interface ClosableComponent extends Composable, Component {

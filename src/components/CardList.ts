@@ -60,11 +60,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const mediaComponent = this.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
-
-      cardComponent.addChild(cardHeaderComponent, 'header');
-      cardComponent.addChild(mediaComponent, 'media');
-      cardComponent.addChild(cardDescriptionComponent, 'description');
-
+      cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
       cardComponent.setOnCloseListener(onCloseListener);
 
       extractedPostList.push(cardComponent);
@@ -73,7 +69,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  addChild(child: Component, id: string) {
+  addChild(children: Component[], id: string) {
     const cardComponent = new Card(id);
 
   }
