@@ -7,7 +7,7 @@ import { Image } from "./Image";
 /* interfaces */
 
 export interface Component {
-  type: ComponentType;
+  type?: ComponentType;
   attachTo(parent: HTMLElement, position: InsertPosition): void;
   removeFrom(parent: HTMLElement): void;
 }
@@ -48,7 +48,7 @@ export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
   readonly type: ComponentType;
 
-  constructor(htmlString: string, type: ComponentType) {
+  constructor(htmlString: string, type?: ComponentType) {
     const template = document.createElement('template');
     template.innerHTML = htmlString;
     this.$element = template.content.firstElementChild! as T;
