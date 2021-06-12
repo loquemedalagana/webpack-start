@@ -1,7 +1,7 @@
-import {Core} from "../Core";
-import {MODAL_HEADER_INNERHTML} from "../../constants/innerHTML";
-import {OnCloseLister} from "../../types/eventlistener";
-import { PostType } from "../../types/item";
+import { Core } from '../Core';
+import { MODAL_HEADER_INNERHTML } from '../../constants/innerHTML';
+import { OnCloseLister } from '../../types/eventlistener';
+import { PostType } from '../../types/item';
 
 export class ModalHeader extends Core<HTMLElement> {
   constructor(title: PostType | string, onClose: OnCloseLister) {
