@@ -1,4 +1,4 @@
-import { ComponentType } from "../types/item";
+import { ComponentType, ImageItem, PostItem, PostType, VideoItem } from "../types/item";
 import { OnCloseLister } from "../types/eventlistener";
 import { Video } from "./Video";
 import { Post } from "./Post";
