@@ -3,6 +3,8 @@ import { ModalRoot } from './components/Modal/ModalRoot';
 import { Body } from './Body';
 import { Footer } from './components/Footer';
 import { samplePostList } from './data/sampleData';
+import { Modal } from "./components/Modal/Modal";
+import { ModalHeader } from "./components/Modal/ModalHeader";
 
 export class App {
   private $header: Header;
@@ -13,6 +15,7 @@ export class App {
   constructor(appRoot: HTMLElement) {
     this.$header = new Header();
     this.$body = new Body();
+    this.$modalRoot = new ModalRoot(Modal, ModalHeader);
     this.$footer = new Footer();
     this.$header.attachTo(appRoot, 'afterbegin');
     this.$footer.attachTo(appRoot, 'beforeend');
