@@ -34,9 +34,8 @@ export class Core<T extends HTMLElement> implements Component {
   constructor(htmlString: string, type?: ComponentType) {
     const template = document.createElement('template');
     template.innerHTML = htmlString;
-    // console.log(htmlString);
     this.$element = template.content.firstElementChild! as T;
-    // console.log(this.$element);
+    this.type = type;
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition) {

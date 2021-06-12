@@ -16,6 +16,8 @@ export class Card extends Core<HTMLElement> implements ClosableComponent {
     const $root = this.$element.querySelector('.card-root')! as HTMLElement;
     const $container = this.$element.querySelector('.card-body')! as HTMLElement;
 
+    console.log(child.type);
+
     if (type === 'header') {
       child.attachTo($root, 'afterbegin');
     } else {
