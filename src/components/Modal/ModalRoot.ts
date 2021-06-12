@@ -35,11 +35,15 @@ export class ModalRoot implements Composable {
     const newModal = new this.modalComponentConstructor(postData);
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
+    const submitData = () => {
+      removeModal();
+    }
+
     const newModalHeader = new this.modalHeaderConstructor(
       modalType === 'view-post-detail' ? postData : `add ${newPostType}`,
       removeModal,
     );
-    const newModalAction = new ModalAction();
+    const newModalAction = new ModalAction(submitData);
     const modalChildren = [newModalHeader];
 
     if(modalType === 'add-card') {
