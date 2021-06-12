@@ -1,10 +1,18 @@
-import { Composable, InteractiveComponentConstructor, Component } from '../Core';
-import { PostDataType } from '../../types/item';
+import {
+  Composable,
+  InteractiveComponentConstructor,
+  Component,
+  ClosableHeaderComponentConstructor,
+} from '../Core';
+import { ModalType, PostDataType } from '../../types/item';
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
 
-  constructor(private modalComponentConstructor: InteractiveComponentConstructor) {
+  constructor(
+    private modalComponentConstructor: InteractiveComponentConstructor, // class Modal
+    private modalHeaderConstructor: ClosableHeaderComponentConstructor, // class ModalHeader
+  ) {
     this.$modalRoot = document.querySelector('#modal-root');
   }
 
@@ -24,6 +32,15 @@ export class ModalRoot implements Composable {
 
   openModal(postData?: PostDataType) {
     const newModal = new this.modalComponentConstructor(postData);
+    const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
+    const removeModal = () => newModal.removeFrom(this.$modalRoot);
+    const newModalHeader = new this.modalHeaderConstructor(
+      modalType === 'view-post-detail' ? postData : '모달 제목',
+      removeModal,
+    );
+
+    newModal.addChildren([newModalHeader]);
+
     this.addChildren([newModal], postData);
   }
 }
