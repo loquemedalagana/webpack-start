@@ -1,13 +1,21 @@
-import { ComponentType, ImageItem, PostItem, PostType, VideoItem } from "../types/item";
+import {
+  ComponentType,
+  ImageItem,
+  PostDataType,
+  PostItem,
+  PostType,
+  VideoItem
+} from "../types/item";
 import { OnCloseLister } from "../types/eventlistener";
 
 export interface Component {
+  type?: ComponentType;
   attachTo(parent: HTMLElement, position: InsertPosition): void;
   removeFrom(parent: HTMLElement): void;
 }
 
 export interface Composable {
-  addChild(child: Component, id?: string, type?: ComponentType): void;
+  addChildren(children: Component[], postData?: PostDataType): void;
 }
 
 export interface ClosableComponent extends Composable, Component {
@@ -23,18 +31,18 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (postData: ImageItem | VideoItem | PostItem, onClose?: OnCloseLister): Component;
+  new (postData: PostDataType, onClose?: OnCloseLister): Component;
 }
 
 export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
+  readonly type?: ComponentType;
 
-  constructor(htmlString: string) {
+  constructor(htmlString: string, type?: ComponentType) {
     const template = document.createElement('template');
     template.innerHTML = htmlString;
-    // console.log(htmlString);
     this.$element = template.content.firstElementChild! as T;
-    // console.log(this.$element);
+    this.type = type;
   }
 
   attachTo(parent: HTMLElement, position: InsertPosition) {

@@ -7,7 +7,7 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
   videoURL: string;
 
   constructor(videoInfo: VideoItem) {
-    super(VIDEO_INNERHTML);
+    super(VIDEO_INNERHTML, 'media');
     this.videoURL = this.convertToEmbeddedURL(videoInfo.url);
 
     const $videoElement = this.$element.querySelector('.video-player')! as HTMLIFrameElement;

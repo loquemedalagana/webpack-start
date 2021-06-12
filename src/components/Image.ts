@@ -4,7 +4,7 @@ import { IMAGE_INNERHTML } from '../constants/innerHTML';
 
 export class Image extends Core<HTMLElement | HTMLImageElement> {
   constructor(imageInfo: ImageItem) {
-    super(IMAGE_INNERHTML);
+    super(IMAGE_INNERHTML, 'media');
 
     const $imageElement = this.$element.querySelector('.image')! as HTMLImageElement;
 

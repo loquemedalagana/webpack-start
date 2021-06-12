@@ -10,6 +10,6 @@ export class Body {
     this.$element = document.querySelector('main');
     this.$cardWrapper = new CardList(Card, CardHeader);
     this.$element.setAttribute('class', 'container');
-    this.$cardWrapper.attachTo(this.$element);
+    this.$cardWrapper.attachTo(this.$element, 'afterbegin');
   }
 }
