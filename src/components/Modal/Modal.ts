@@ -19,6 +19,8 @@ export class Modal extends Core<HTMLElement> implements ClosableComponent {
       const { type } = child;
       if (type === 'header') {
         child.attachTo($root, 'afterbegin');
+      } else if(type === 'footer') {
+        child.attachTo($root, 'beforeend');
       } else {
         child.attachTo($body, 'beforeend');
       }
