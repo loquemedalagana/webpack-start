@@ -31,7 +31,7 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (postData: PostDataType, onClose?: OnCloseLister): Component;
+  new (data: PostDataType | string, onClose?: OnCloseLister): Component;
 }
 
 export type InteractiveComponentConstructor = {
