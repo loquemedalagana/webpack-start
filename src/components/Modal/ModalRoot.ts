@@ -6,6 +6,7 @@ import {
 } from '../Core';
 import { ModalType, PostDataType, PostType } from "../../types/item";
 import { ModalAction } from "./ModalAction";
+import { ModalForm } from "./ModalForm";
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
@@ -36,6 +37,8 @@ export class ModalRoot implements Composable {
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
+      // make output based on inputted data
+
       removeModal();
     }
 
@@ -43,12 +46,18 @@ export class ModalRoot implements Composable {
       modalType === 'view-post-detail' ? postData : `add ${newPostType}`,
       removeModal,
     );
+
+    const newModalForm = new ModalForm();
     const newModalAction = new ModalAction(submitData);
+
     const modalChildren = [newModalHeader];
+    const modalFormChildren = []; // inputs will be added
 
     if(modalType === 'add-card') {
+      modalChildren.push(newModalForm);
       modalChildren.push(newModalAction);
     }
+
 
     newModal.addChildren(modalChildren);
 
