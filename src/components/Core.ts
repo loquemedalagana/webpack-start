@@ -34,6 +34,10 @@ export type ClosableHeaderComponentConstructor = {
   new (postData: PostDataType, onClose?: OnCloseLister): Component;
 }
 
+export type InteractiveComponentConstructor = {
+  new (postData?: PostDataType): InteractiveComponent;
+}
+
 export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
   readonly type?: ComponentType;
