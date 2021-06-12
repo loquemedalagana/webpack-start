@@ -11,8 +11,6 @@ import { Post } from "./Post";
 import { ImageItem, PostDataType, PostItem, VideoItem } from "../types/item";
 import { CARDWRAPPER_INNERHTML } from "../constants/innerHTML";
 
-import { Card } from "./Card/Card";
-import { CardHeader } from "./Card/CardHeader";
 import { CardDescription } from "./Card/CardDescription";
 
 export class CardList extends Core<HTMLElement> implements Composable {
@@ -70,7 +68,13 @@ export class CardList extends Core<HTMLElement> implements Composable {
   }
 
   addChild(children: Component[], postData: PostDataType) {
-    const cardComponent = new Card(postData.id);
+    const cardComponent = new this.cardConstructor(postData.id);
+    const onCloseListener = () => cardComponent.removeFrom(this.$element);
+    const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
+    const mediaComponent = this.getMediaComponent(postData);
+    const cardDescriptionComponent = new CardDescription(postData.description);
 
+    cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
+    cardComponent.setOnCloseListener(onCloseListener);
   }
 }
