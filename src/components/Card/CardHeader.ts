@@ -5,7 +5,7 @@ import { OnCloseLister } from "../../types/eventlistener";
 
 export class CardHeader extends Core<HTMLElement> {
   constructor(postData: ImageItem | VideoItem | PostItem, onClose?: OnCloseLister) {
-    super(CARD_HEADER_INNERHTML);
+    super(CARD_HEADER_INNERHTML, 'header');
     const { title } = postData;
 
     const $cardTitle = this.$element.querySelector('.card-title')! as HTMLHeadingElement;

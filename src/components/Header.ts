@@ -7,7 +7,7 @@ export class Header extends Core<HTMLElement>{
   private $navigation: Navigation;
 
   constructor() {
-    super(HEADER_INNERHTML);
+    super(HEADER_INNERHTML, 'header');
 
     this.$headerContainer = document.createElement('div');
     this.$navigation = new Navigation();

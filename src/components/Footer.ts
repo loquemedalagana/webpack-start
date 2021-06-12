@@ -3,7 +3,7 @@ import { COPYRIGHT_INNERHTML, FOOTER_INNERHTML } from '../constants/innerHTML';
 
 export class Footer extends Core<HTMLElement>{
   constructor() {
-    super(FOOTER_INNERHTML);
+    super(FOOTER_INNERHTML, 'footer');
     this.$element.innerHTML = COPYRIGHT_INNERHTML;
   }
 

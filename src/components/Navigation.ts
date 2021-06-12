@@ -12,7 +12,7 @@ export class Navigation extends Core<HTMLElement>{
   private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
   constructor() {
-    super(NAVIGATION_INNERHTML);
+    super(NAVIGATION_INNERHTML, 'navigation');
 
     this.$navItems = this.createNavItems();
     this.$navItems.forEach(($navItem) => {
