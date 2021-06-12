@@ -61,9 +61,9 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const cardDescriptionComponent = new CardDescription(value.description);
 
 
-      cardComponent.addChild(cardHeaderComponent, 'card-header');
-      cardComponent.addChild(mediaComponent, 'card-media');
-      cardComponent.addChild(cardDescriptionComponent, 'card-description');
+      cardComponent.addChild(cardHeaderComponent, 'header');
+      cardComponent.addChild(mediaComponent, 'media');
+      cardComponent.addChild(cardDescriptionComponent, 'description');
 
       cardComponent.setOnCloseListener(onCloseListener);
 

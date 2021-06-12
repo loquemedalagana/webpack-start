@@ -1,5 +1,5 @@
 export type PostType = "post" | "image" | "video";
-export type ComponentType = 'card-media' | 'card-description' | 'card-header';
+export type ComponentType = 'media' | 'description' | 'header' | 'footer';
 
 export type PostItem = {
   type: PostType;

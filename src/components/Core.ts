@@ -2,6 +2,7 @@ import { ComponentType, ImageItem, PostItem, PostType, VideoItem } from "../type
 import { OnCloseLister } from "../types/eventlistener";
 
 export interface Component {
+  type?: ComponentType;
   attachTo(parent: HTMLElement, position: InsertPosition): void;
   removeFrom(parent: HTMLElement): void;
 }
