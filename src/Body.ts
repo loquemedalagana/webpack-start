@@ -1,4 +1,4 @@
-import { CardList } from './components/CardList';
+import { CardList } from './components/Card/CardList';
 import { Card } from './components/Card/Card';
 import { CardHeader } from './components/Card/CardHeader';
 

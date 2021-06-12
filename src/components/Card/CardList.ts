@@ -5,14 +5,14 @@ import {
   Component,
   Composable,
   Core,
-} from './Core';
-import { Image } from './Image';
-import { Video } from './Video';
-import { Post } from './Post';
-import { ImageItem, PostDataType, PostItem, VideoItem } from '../types/item';
-import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
+} from '../Core';
+import { Image } from '../Image';
+import { Video } from '../Video';
+import { Post } from '../Post';
+import { ImageItem, PostDataType, PostItem, VideoItem } from '../../types/item';
+import { CARDWRAPPER_INNERHTML } from '../../constants/innerHTML';
 
-import { CardDescription } from './Card/CardDescription';
+import { CardDescription } from './CardDescription';
 
 export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<ClosableComponent>; // Card component로 통합?
