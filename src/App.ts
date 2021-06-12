@@ -1,4 +1,5 @@
 import { Header } from './components/Header';
+import { ModalRoot } from './components/Modal/ModalRoot';
 import { Body } from './Body';
 import { Footer } from './components/Footer';
 import { samplePostList } from './data/sampleData';
@@ -7,6 +8,7 @@ export class App {
   private $header: Header;
   private $body: Body;
   private $footer: Footer;
+  private $modalRoot: ModalRoot;
 
   constructor(appRoot: HTMLElement) {
     this.$header = new Header();
@@ -19,10 +21,10 @@ export class App {
   }
 
   private setItemList() {
-    if(localStorage.length === 0) {
-      samplePostList.forEach(samplePost => {
+    if (localStorage.length === 0) {
+      samplePostList.forEach((samplePost) => {
         const foundValue = localStorage.getItem(samplePost.id);
-        if(foundValue === null) {
+        if (foundValue === null) {
           localStorage.setItem(samplePost.id, JSON.stringify(samplePost));
         }
       });
