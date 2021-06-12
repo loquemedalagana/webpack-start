@@ -1,10 +1,9 @@
 import { CardList } from './components/Card/CardList';
 import { Card } from './components/Card/Card';
 import { CardHeader } from './components/Card/CardHeader';
-import { ModalControllable } from "./components/Core";
 import { ModalRoot } from "./components/Modal/ModalRoot";
 
-export class Body implements ModalControllable {
+export class Body {
   private $element: HTMLElement;
   private $cardWrapper: CardList;
 

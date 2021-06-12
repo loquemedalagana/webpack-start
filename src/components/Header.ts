@@ -1,9 +1,9 @@
-import { Core, ModalControllable } from "./Core";
+import { Core } from "./Core";
 import { Navigation } from './Navigation';
 import { APP_TITLE_INNTERHTML, HEADER_INNERHTML } from '../constants/innerHTML';
 import { ModalRoot } from "./Modal/ModalRoot";
 
-export class Header extends Core<HTMLElement> implements ModalControllable{
+export class Header extends Core<HTMLElement> {
   private $headerContainer: HTMLElement;
   private $navigation: Navigation;
 
@@ -11,7 +11,7 @@ export class Header extends Core<HTMLElement> implements ModalControllable{
     super(HEADER_INNERHTML);
 
     this.$headerContainer = document.createElement('div');
-    this.$navigation = new Navigation();
+    this.$navigation = new Navigation(modalRoot);
 
     // setAttribute vs classlist.add 차이점
 

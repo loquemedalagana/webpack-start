@@ -1,12 +1,13 @@
 import { Core, ModalControllable } from "./Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
 import { PostType } from '../types/item';
+import { ModalRoot } from "./Modal/ModalRoot";
 
 export class Navigation extends Core<HTMLElement> implements ModalControllable {
   private $navItems: HTMLElement[];
   private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
-  constructor() {
+  constructor(modalRoot: ModalRoot) {
     super(NAVIGATION_INNERHTML);
 
     this.$navItems = this.createNavItems();
