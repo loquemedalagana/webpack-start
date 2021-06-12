@@ -32,7 +32,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     parent.insertAdjacentElement(position, this.$element);
   }
 
-  private getMediaComponent(postData: PostDataType): Image | Video | Post {
+  private static getMediaComponent(postData: PostDataType): Image | Video | Post {
     switch (postData.type) {
       case 'video':
         return new Video(postData! as VideoItem);
@@ -55,7 +55,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
       const cardHeaderComponent = new this.cardHeaderConstructor(value, onCloseListener);
-      const mediaComponent = this.getMediaComponent(value);
+      const mediaComponent = CardList.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
       cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
@@ -71,7 +71,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     const cardComponent = new this.cardConstructor(postData.id);
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
-    const mediaComponent = this.getMediaComponent(postData);
+    const mediaComponent = CardList.getMediaComponent(postData);
     const cardDescriptionComponent = new CardDescription(postData.description);
 
     cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
