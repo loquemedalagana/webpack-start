@@ -91,7 +91,12 @@ export const MODAL_INNERHTML = `
 `;
 
 export const MODAL_HEADER_INNERHTML = `
-<div class="modal-header"></div>
+<div class="modal-header">
+    <h2 class="modal-title"></h2>
+    <div class="modal-control">
+      <button class="modal-close-button">&times;</button>
+    </div>
+</div>
 `;
 
 export const MODAL_ACTION_INNERHTML = `
