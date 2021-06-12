@@ -1,13 +1,8 @@
-import { Core } from "./Core";
+import { Core } from './Core';
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
-import {PostType} from "../types/item";
+import { PostType } from '../types/item';
 
-type NavItemsId = {
-  name: string;
-  id: string;
-};
-
-export class Navigation extends Core<HTMLElement>{
+export class Navigation extends Core<HTMLElement> {
   private $navItems: HTMLElement[];
   private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
@@ -29,10 +24,11 @@ export class Navigation extends Core<HTMLElement>{
       $navButtonElement.setAttribute('class', 'button-transparent nav-button');
       $navButtonElement.innerText = itemTitle;
 
+      $navButtonElement.onclick = () => console.log(itemTitle);
+
       $navItemElement.appendChild($navButtonElement);
 
       return $navItemElement;
     });
   }
-
 }
