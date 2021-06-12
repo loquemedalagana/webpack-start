@@ -4,9 +4,10 @@ import {
   Component,
   ClosableHeaderComponentConstructor,
 } from '../Core';
-import { ModalType, PostDataType, PostType } from "../../types/item";
-import { ModalAction } from "./ModalAction";
-import { ModalForm } from "./ModalForm";
+import { ModalType, PostDataType, PostType } from '../../types/item';
+import { ModalAction } from './ModalAction';
+import { ModalForm } from './ModalForm';
+import { Input } from './Input';
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
@@ -40,7 +41,7 @@ export class ModalRoot implements Composable {
       // make output based on inputted data
 
       removeModal();
-    }
+    };
 
     const newModalHeader = new this.modalHeaderConstructor(
       modalType === 'view-post-detail' ? postData : `add ${newPostType}`,
@@ -53,11 +54,20 @@ export class ModalRoot implements Composable {
     const modalChildren = [newModalHeader];
     const modalFormChildren = []; // inputs will be added
 
-    if(modalType === 'add-card') {
+    const urlInput = new Input('url-input');
+    const titleInput = new Input('title-input');
+    const descriptionInput = new Input('description-input');
+
+    if (newPostType === 'image' || newPostType === 'video') {
+      modalFormChildren.push(urlInput);
+    }
+
+    newModalForm.addChildren([...modalFormChildren, titleInput, descriptionInput]);
+
+    if (modalType === 'add-card') {
       modalChildren.push(newModalForm);
       modalChildren.push(newModalAction);
     }
-
 
     newModal.addChildren(modalChildren);
 
