@@ -1,2 +1,2 @@
 export type OnCloseLister = () => void;
-export type OnSubmitListener = (e: Event) => void;
+export type OnSubmitListener = () => void;
