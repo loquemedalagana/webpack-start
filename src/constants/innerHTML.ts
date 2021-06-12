@@ -117,7 +117,9 @@ export const MODAL_ACTION_INNERHTML = `
 `;
 
 export const MODAL_FORM_INNERHTML = `
-  <section class="modal-form-inputs-wrapper"></section>
+<section class="modal-form-inputs-wrapper">
+  <p>modal form!</p>
+</section>
 `;
 
 export const INPUT_INNERHTML = `
