@@ -1,9 +1,10 @@
-import { ClosableComponent, Core, Component } from '../Core';
-import { OnCloseLister } from '../../types/eventlistener';
+import { Core, Component, InteractiveComponent } from "../Core";
+import { OnCloseLister, OnSubmitListener } from "../../types/eventlistener";
 import { MODAL_INNERHTML } from '../../constants/innerHTML';
 
-export class Modal extends Core<HTMLElement> implements ClosableComponent {
+export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   protected handleClose?: OnCloseLister;
+  protected handleSubmit?: OnSubmitListener;
   private $modalRoot: HTMLElement;
 
   constructor() {
@@ -29,5 +30,9 @@ export class Modal extends Core<HTMLElement> implements ClosableComponent {
 
   setOnCloseListener(listener: OnCloseLister) {
     this.handleClose = listener;
+  }
+
+  setOnSubmitListener(listener: OnSubmitListener) {
+    this.handleSubmit = listener;
   }
 }
