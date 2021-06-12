@@ -7,6 +7,7 @@ import {
   VideoItem
 } from "../types/item";
 import { OnCloseLister } from "../types/eventlistener";
+import { ModalRoot } from "./Modal/ModalRoot";
 
 export interface Component {
   type?: ComponentType;
@@ -26,6 +27,10 @@ export interface InteractiveComponent extends ClosableComponent {
   setOnSubmitListener(listener: OnCloseLister): void;
 }
 
+export interface ModalControllable {
+
+}
+
 export type CloseableComponentConstructor = {
   new (id: string): ClosableComponent;
 };
@@ -36,6 +41,10 @@ export type ClosableHeaderComponentConstructor = {
 
 export type InteractiveComponentConstructor = {
   new (postData?: PostDataType): InteractiveComponent;
+}
+
+export type ModalControllableComponentConstructor = {
+  new (modalRoot: ModalRoot): ModalControllable;
 }
 
 export class Core<T extends HTMLElement> implements Component {
