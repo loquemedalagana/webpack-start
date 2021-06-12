@@ -15,7 +15,7 @@ export interface Component {
 }
 
 export interface Composable {
-  addChild(children: Component[], postData?: PostDataType): void;
+  addChildren(children: Component[], postData?: PostDataType): void;
 }
 
 export interface ClosableComponent extends Composable, Component {

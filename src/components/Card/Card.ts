@@ -11,7 +11,7 @@ export class Card extends Core<HTMLElement> implements ClosableComponent {
     this.$element.id = id;
   }
 
-  addChild(children: Component[]) {
+  addChildren(children: Component[]) {
     // 참고: Core.ts
     const $root = this.$element.querySelector('.card-root')! as HTMLElement;
     const $container = this.$element.querySelector('.card-body')! as HTMLElement;

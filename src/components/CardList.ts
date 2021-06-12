@@ -1,17 +1,18 @@
 import {
-  ClosableComponent, ClosableHeaderComponentConstructor,
+  ClosableComponent,
+  ClosableHeaderComponentConstructor,
   CloseableComponentConstructor,
   Component,
   Composable,
-  Core
-} from "./Core";
-import { Image } from "./Image";
-import { Video } from "./Video";
-import { Post } from "./Post";
-import { ImageItem, PostDataType, PostItem, VideoItem } from "../types/item";
-import { CARDWRAPPER_INNERHTML } from "../constants/innerHTML";
+  Core,
+} from './Core';
+import { Image } from './Image';
+import { Video } from './Video';
+import { Post } from './Post';
+import { ImageItem, PostDataType, PostItem, VideoItem } from '../types/item';
+import { CARDWRAPPER_INNERHTML } from '../constants/innerHTML';
 
-import { CardDescription } from "./Card/CardDescription";
+import { CardDescription } from './Card/CardDescription';
 
 export class CardList extends Core<HTMLElement> implements Composable {
   private postComponentList: Array<ClosableComponent>; // Card component로 통합?
@@ -54,7 +55,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const mediaComponent = CardList.getMediaComponent(value);
       const cardDescriptionComponent = new CardDescription(value.description);
 
-      cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
+      cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
       cardComponent.setOnCloseListener(onCloseListener);
 
       extractedPostList.push(cardComponent);
@@ -63,14 +64,20 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  addChild(children: Component[], postData: PostDataType) {
+  addChildren(children: Component[], postData: PostDataType) {
+    if (children.length > 1) {
+      throw new Error('in card list component, only 1 child can be added');
+    }
+    const [child] = children;
     const cardComponent = new this.cardConstructor(postData.id);
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
     const mediaComponent = CardList.getMediaComponent(postData);
     const cardDescriptionComponent = new CardDescription(postData.description);
 
-    cardComponent.addChild([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
+    cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
     cardComponent.setOnCloseListener(onCloseListener);
+
+    child.attachTo(this.$element, 'beforeend');
   }
 }
