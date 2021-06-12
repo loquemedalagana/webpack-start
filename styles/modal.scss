@@ -33,19 +33,42 @@
 }
 
 .modal-header {
-
+  border-bottom: none;
+  //padding: 24px 24px 20px;
+  min-height: 48px;
 }
 
 .modal-title {
-
+  margin: 0;
+  line-height: 1.42857143;
 }
 
 .modal-control {
+  color: #999999;
+  z-index: 2300;
+  margin-Top: -12px;
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  font-Size: inherit;
+  opacity: 0.9;
+  text-Shadow: none;
+  font-weight: 700;
+  line-height: 1;
+  float: right;
 
+  &:hover,&:focus {
+    color: #aabad2;
+  }
 }
 
 .modal-close-button {
-
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  color: #5b5b5b;
 }
 
 .modal-body {
