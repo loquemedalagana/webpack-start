@@ -24,9 +24,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     super(CARDWRAPPER_INNERHTML);
     this.postComponentList = this.getLocalStorageData();
 
-    this.postComponentList.forEach((component) => {
-      component.attachTo(this.$element, 'beforeend');
-    });
+    this.addChildren(this.postComponentList);
   }
 
   private static getMediaComponent(postData: PostDataType): Image | Video | Post {
@@ -64,20 +62,9 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  addChildren(children: Component[], postData: PostDataType) {
-    if (children.length > 1) {
-      throw new Error('in card list component, only 1 child can be added');
-    }
-    const [child] = children;
-    const cardComponent = new this.cardConstructor(postData.id);
-    const onCloseListener = () => cardComponent.removeFrom(this.$element);
-    const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
-    const mediaComponent = CardList.getMediaComponent(postData);
-    const cardDescriptionComponent = new CardDescription(postData.description);
-
-    cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
-    cardComponent.setOnCloseListener(onCloseListener);
-
-    child.attachTo(this.$element, 'beforeend');
+  addChildren(children: Component[]) {
+    children.forEach(child => {
+      child.attachTo(this.$element, 'beforeend');
+    });
   }
 }
