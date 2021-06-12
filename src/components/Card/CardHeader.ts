@@ -9,7 +9,7 @@ export class CardHeader extends Core<HTMLElement> {
     const { title } = postData;
 
     const $cardTitle = this.$element.querySelector('.card-title')! as HTMLHeadingElement;
-    const $closeButton = this.$element.querySelector('.card-close-button')! as HTMLButtonElement;
+    const $closeButton = this.$element.querySelector('.close-button')! as HTMLButtonElement;
     $cardTitle.innerText = title || '제목 없음';
 
     $closeButton.onclick = () => {

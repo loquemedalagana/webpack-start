@@ -39,7 +39,7 @@ export const CARD_HEADER_INNERHTML = `
   <div class="card-header">
     <h2 class="card-title"></h2>
     <div class="card-control">
-      <button class="card-close-button">&times;</button>
+      <button class="close-button">&times;</button>
     </div>
   </div>
 `;
@@ -94,7 +94,7 @@ export const MODAL_HEADER_INNERHTML = `
 <div class="modal-header">
     <h2 class="modal-title"></h2>
     <div class="modal-control">
-      <button class="modal-close-button">&times;</button>
+      <button class="close-button">&times;</button>
     </div>
 </div>
 `;

@@ -8,7 +8,7 @@ export class ModalHeader extends Core<HTMLElement> {
     super(MODAL_HEADER_INNERHTML, 'header');
 
     const $modalTitle = this.$element.querySelector('.modal-title')! as HTMLHeadingElement;
-    const $closeButton = this.$element.querySelector('.modal-close-button')! as HTMLButtonElement;
+    const $closeButton = this.$element.querySelector('.close-button')! as HTMLButtonElement;
     $modalTitle.innerText = title || '제목 없음';
 
     $closeButton.onclick = () => {
