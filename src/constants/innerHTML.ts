@@ -83,7 +83,7 @@ export const NAVIGATION_INNERHTML = `
 `;
 
 export const MODAL_INNERHTML = `
-<div class="modal-wrapper">
+<div class="modal-wrapper modal-full-screen">
   <div class="modal-container hidden">
     <div class="modal-body"></div>
   </div>
