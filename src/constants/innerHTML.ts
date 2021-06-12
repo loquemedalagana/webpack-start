@@ -1,6 +1,8 @@
 import {APP_TITLE} from "./texts";
 import { ImageItem } from "../types/item";
 
+/* 자잘한 태그들 */
+
 export const COPYRIGHT_INNERHTML = `
 <div class="container container-fluid">
   <span class="copyright-text">
@@ -25,6 +27,8 @@ export const APP_TITLE_INNTERHTML = `
   <h1>${APP_TITLE}</h1>    
 </div>
 `;
+
+/* card component */
 
 export const CARD_INNERHTML = `
 <li class="card">
@@ -51,6 +55,8 @@ export const CARD_DESCRIPTION_INNERHTML = `
   </div>
 `;
 
+/* media component */
+
 export const IMAGE_INNERHTML = `
 <div class="card-media-wrapper image-thumbnail-wrapper">
   <img class="image image-thumbnail" >
@@ -64,6 +70,8 @@ export const VIDEO_INNERHTML = `
   </div>
 </div>
 `;
+
+/* layout components */
 
 export const HEADER_INNERHTML = `
 <header class="appbar appbar-main-color"></header>
@@ -82,10 +90,13 @@ export const NAVIGATION_INNERHTML = `
 <ul class="nav"></ul>
 `;
 
+/* modal components */
+
 export const MODAL_INNERHTML = `
 <div class="modal-wrapper modal-full-screen">
   <div class="modal-container hidden">
     <div class="modal-body"></div>
+    <form class="modal-form"></form>
   </div>
 </div>
 `;
@@ -102,5 +113,17 @@ export const MODAL_HEADER_INNERHTML = `
 export const MODAL_ACTION_INNERHTML = `
 <div class="modal-action">
   <button class="modal-action-button button button-outlined"></button>
+</div>
+`;
+
+export const MODAL_FORM_INNERHTML = `
+  <section class="modal-form-inputs-wrapper"></section>
+`;
+
+export const INPUT_INNERHTML = `
+<div class="input-wrapper">
+    <label class="input-label">
+      <input class="input">
+    </label>
 </div>
 `;
