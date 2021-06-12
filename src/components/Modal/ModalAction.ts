@@ -8,8 +8,8 @@ export class ModalAction extends Core<HTMLElement> {
     const $submitButton = this.$element.querySelector('.modal-action-button')! as HTMLButtonElement;
     $submitButton.innerText = 'add';
 
-    $submitButton.onclick = () => {
+    $submitButton.addEventListener('click', () => {
       onSubmit && onSubmit();
-    }
+    });
   }
 }
