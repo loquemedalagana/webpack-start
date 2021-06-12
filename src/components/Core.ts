@@ -1,4 +1,11 @@
-import { ComponentType, ImageItem, PostItem, PostType, VideoItem } from "../types/item";
+import {
+  ComponentType,
+  ImageItem,
+  PostDataType,
+  PostItem,
+  PostType,
+  VideoItem
+} from "../types/item";
 import { OnCloseLister } from "../types/eventlistener";
 
 export interface Component {
@@ -8,7 +15,7 @@ export interface Component {
 }
 
 export interface Composable {
-  addChild(children: Component[], id?: string): void;
+  addChild(children: Component[], postData?: PostDataType): void;
 }
 
 export interface ClosableComponent extends Composable, Component {
@@ -24,7 +31,7 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (postData: ImageItem | VideoItem | PostItem, onClose?: OnCloseLister): Component;
+  new (postData: PostDataType, onClose?: OnCloseLister): Component;
 }
 
 export class Core<T extends HTMLElement> implements Component {

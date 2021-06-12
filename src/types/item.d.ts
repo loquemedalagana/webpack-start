@@ -15,3 +15,5 @@ export type ImageItem = PostItem & {
 export type VideoItem = Partial<PostItem> & {
   url: string;
 };
+
+export type PostDataType = PostItem | ImageItem | VideoItem;
