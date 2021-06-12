@@ -1,8 +1,8 @@
-import { Core } from './Core';
+import { Core, ModalControllable } from "./Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
 import { PostType } from '../types/item';
 
-export class Navigation extends Core<HTMLElement> {
+export class Navigation extends Core<HTMLElement> implements ModalControllable {
   private $navItems: HTMLElement[];
   private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 

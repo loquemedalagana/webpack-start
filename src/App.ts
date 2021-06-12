@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { samplePostList } from './data/sampleData';
 import { Modal } from "./components/Modal/Modal";
 import { ModalHeader } from "./components/Modal/ModalHeader";
+import { ModalControllableComponentConstructor } from "./components/Core";
 
 export class App {
   private $header: Header;
@@ -12,10 +13,15 @@ export class App {
   private $footer: Footer;
   private $modalRoot: ModalRoot;
 
-  constructor(appRoot: HTMLElement) {
+  constructor(
+    appRoot: HTMLElement,
+    headerConstructor: ModalControllableComponentConstructor,
+    bodyConstructor: ModalControllableComponentConstructor,
+  ) {
+    this.$modalRoot = new ModalRoot(Modal, ModalHeader);
     this.$header = new Header();
     this.$body = new Body();
-    this.$modalRoot = new ModalRoot(Modal, ModalHeader);
+
     this.$footer = new Footer();
     this.$header.attachTo(appRoot, 'afterbegin');
     this.$footer.attachTo(appRoot, 'beforeend');

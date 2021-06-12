@@ -1,8 +1,8 @@
-import { Core } from './Core';
+import { Core, ModalControllable } from "./Core";
 import { Navigation } from './Navigation';
 import { APP_TITLE_INNTERHTML, HEADER_INNERHTML } from '../constants/innerHTML';
 
-export class Header extends Core<HTMLElement>{
+export class Header extends Core<HTMLElement> implements ModalControllable{
   private $headerContainer: HTMLElement;
   private $navigation: Navigation;
 
