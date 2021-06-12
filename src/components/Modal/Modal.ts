@@ -1,6 +1,5 @@
 import { ClosableComponent, Core, Component } from '../Core';
 import { OnCloseLister } from '../../types/eventlistener';
-import { ComponentType } from '../../types/item';
 import { MODAL_INNERHTML } from '../../constants/innerHTML';
 
 export class Modal extends Core<HTMLElement> implements ClosableComponent {
@@ -12,8 +11,18 @@ export class Modal extends Core<HTMLElement> implements ClosableComponent {
     this.$modalRoot = this.$element.querySelector('.modal-container')! as HTMLElement;
   }
 
-  addChild(child: Component, type?: ComponentType) {
-    child.attachTo(this.$modalRoot, type === 'header' ? 'afterbegin' : 'beforeend');
+  addChildren(children: Component[]) {
+    const $root = this.$element.querySelector('.modal-root')! as HTMLElement;
+    const $body = this.$element.querySelector('.card-body')! as HTMLElement;
+
+    children.forEach((child) => {
+      const { type } = child;
+      if (type === 'header') {
+        child.attachTo($root, 'afterbegin');
+      } else {
+        child.attachTo($body, 'beforeend');
+      }
+    });
   }
 
   setOnCloseListener(listener: OnCloseLister) {
