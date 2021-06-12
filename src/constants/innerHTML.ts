@@ -73,7 +73,7 @@ export const FOOTER_INNERHTML = `
 <footer></footer>
 `;
 
-export const CARDWRAPPER_INNERHTML = `
+export const CARD_LIST_INNERHTML = `
 <ul id="card-list-wrapper" class="container container-fluid">
 </ul>
 `;
