@@ -84,16 +84,14 @@ export const NAVIGATION_INNERHTML = `
 
 export const MODAL_INNERHTML = `
 <div class="modal-wrapper">
-  <div class="modal-container hidden"></div>
+  <div class="modal-root hidden">
+    <div class="modal-body"></div>
+  </div>
 </div>
 `;
 
 export const MODAL_HEADER_INNERHTML = `
 <div class="modal-header"></div>
-`;
-
-export const MODAL_BODY_INNERHTML = `
-<div class="modal-body"></div>
 `;
 
 export const MODAL_ACTION_INNERHTML = `
