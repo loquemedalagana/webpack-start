@@ -101,6 +101,6 @@ export const MODAL_HEADER_INNERHTML = `
 
 export const MODAL_ACTION_INNERHTML = `
 <div class="modal-action">
-  <button class="modal-action-button"></button>
+  <button class="modal-action-button button button-outlined"></button>
 </div>
 `;
