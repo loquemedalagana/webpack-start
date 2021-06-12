@@ -28,10 +28,6 @@ export class CardList extends Core<HTMLElement> implements Composable {
     });
   }
 
-  attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
-    parent.insertAdjacentElement(position, this.$element);
-  }
-
   private static getMediaComponent(postData: PostDataType): Image | Video | Post {
     switch (postData.type) {
       case 'video':
