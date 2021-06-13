@@ -71,13 +71,8 @@ export class ModalRoot implements Composable {
         }
       }, initialValue);
 
-      // make output based on inputted data
-      console.log(newPostType, inputResult);
-      // const newCardComponent = this.cardList.makeCardComponent(inputResult);
-
-      // 1. dom 조작
-
-      // 2. 아이템
+      const newCardComponent = this.cardList.makeCardComponent(inputResult);
+      this.cardList.addChildren([newCardComponent]);
       removeModal();
     };
 
