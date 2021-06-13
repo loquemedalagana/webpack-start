@@ -47,6 +47,8 @@ export class CardList extends Core<HTMLElement> implements Composable {
       const value = JSON.parse(localStorage.getItem(key))! as PostItem;
       const cardComponent = this.makeCardComponent(value);
 
+      if (extractedPostList.includes(cardComponent)) continue;
+
       extractedPostList.push(cardComponent);
     }
 
@@ -55,7 +57,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
 
   private saveInLocalStorage(newElementId: string, postData: Partial<PostItem>) {
     const foundValue = localStorage.getItem(newElementId);
-    if(foundValue === null) {
+    if (foundValue === null) {
       localStorage.setItem(newElementId, JSON.stringify(postData));
     }
   }
@@ -77,9 +79,8 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return cardComponent;
   }
 
-
   addChildren(children: Component[]) {
-    children.forEach(child => {
+    children.forEach((child) => {
       child.attachTo(this.$element, 'beforeend');
     });
   }
