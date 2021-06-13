@@ -67,11 +67,9 @@ export class ModalRoot implements Composable {
       // make output based on inputted data
       console.log(inputResult);
 
-      // 객체 형태로 매핑!
+      // 1. dom 조작
 
-      // 1. 로컬스토리지에 저장하기
-
-      // 2. DOM 조작하기
+      // 2. 아이템
       removeModal();
     };
 

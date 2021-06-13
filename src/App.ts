@@ -17,7 +17,7 @@ export class App {
   ) {
     this.$modalRoot = new ModalRoot(Modal, ModalHeader);
     this.$header = new Header(this.$modalRoot);
-    this.$body = new Body(this.$modalRoot);
+    this.$body = new Body();
 
     this.$footer = new Footer();
     this.$header.attachTo(appRoot, 'afterbegin');
