@@ -125,7 +125,7 @@ export const MODAL_FORM_INNERHTML = `
 export const INPUT_INNERHTML = `
 <div class="input-wrapper">
     <label class="input-label">
-      <input class="input">
     </label>
+    <input class="input">
 </div>
 `;
