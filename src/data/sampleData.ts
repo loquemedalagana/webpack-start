@@ -53,4 +53,6 @@ https://www.youtube.com/watch?v=KP3tT7__XZQ
 - channel description
 https://www.youtube.com/watch?v=OSXOC45wDRA&t=2s
 
+- 근황올림픽
+https://www.youtube.com/watch?v=auqUW6nGZQ0
 *  */
