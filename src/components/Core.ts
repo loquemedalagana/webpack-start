@@ -17,6 +17,7 @@ export interface ClosableComponent extends Composable, Component {
 }
 
 export interface InteractiveComponent extends ClosableComponent {
+  $form?: HTMLFormElement;
   setOnSubmitListener(listener: OnCloseLister): void;
 }
 

@@ -6,11 +6,13 @@ export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   protected handleClose?: OnCloseLister;
   protected handleSubmit?: OnSubmitListener;
   private $modalContainer: HTMLElement;
+  $form: HTMLFormElement;
 
   constructor() {
     super(MODAL_INNERHTML);
     this.$modalContainer = this.$element.querySelector('.modal-container')! as HTMLElement;
     this.$modalContainer.classList.remove('hidden');
+    this.$form =  this.$element.querySelector('.modal-form')! as HTMLFormElement;
 
     this.$element.onclick = () => {
       this.handleClose && this.handleClose();
@@ -20,16 +22,15 @@ export class Modal extends Core<HTMLElement> implements InteractiveComponent {
   addChildren(children: Component[]) {
     const $root = this.$element.querySelector('.modal-container')! as HTMLElement;
     const $body = this.$element.querySelector('.card-body')! as HTMLElement;
-    const $form = this.$element.querySelector('.modal-form')! as HTMLFormElement;
 
     children.forEach((child) => {
       const { type } = child;
       if (type === 'header') {
         child.attachTo($root, 'afterbegin');
       } else if(type === 'footer') {
-        child.attachTo($form, 'beforeend');
+        child.attachTo(this.$form, 'beforeend');
       } else if(type === 'form') {
-        child.attachTo($form, 'afterbegin');
+        child.attachTo(this.$form, 'afterbegin');
       } else {
         child.attachTo($body, 'beforeend');
       }
