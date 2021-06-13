@@ -19,7 +19,7 @@ export class App {
   constructor(appRoot: HTMLElement) {
     this.$cardList = new CardList(Card, CardHeader);
 
-    this.$modalRoot = new ModalRoot(Modal, ModalHeader);
+    this.$modalRoot = new ModalRoot(this.$cardList, Modal, ModalHeader);
     this.$header = new Header(this.$modalRoot);
     this.$body = new Body(this.$cardList);
 
