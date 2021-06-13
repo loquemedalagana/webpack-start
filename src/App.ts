@@ -34,7 +34,8 @@ export class App {
     if (localStorage.length === 0) {
       samplePostList.forEach((samplePost) => {
         const foundValue = localStorage.getItem(samplePost.id);
-        if (foundValue === null) {
+        const foundElement = document.getElementById(samplePost.id);
+        if (foundValue === null && !foundElement) {
           localStorage.setItem(samplePost.id, JSON.stringify(samplePost));
         }
       });

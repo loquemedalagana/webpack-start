@@ -4,8 +4,6 @@ import { MODAL_FORM_INNERHTML } from "../../constants/innerHTML";
 export class ModalForm extends Core<HTMLElement> implements Composable {
   constructor() {
     super(MODAL_FORM_INNERHTML, 'form');
-
-    console.log(this.$element.children);
   }
 
   addChildren(children: Component[]) {

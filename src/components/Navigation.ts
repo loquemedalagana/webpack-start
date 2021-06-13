@@ -1,6 +1,6 @@
 import { Core, ModalControllable } from "./Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
-import { PostType } from '../types/item';
+import { PostType } from '../types/post';
 import { ModalRoot } from "./Modal/ModalRoot";
 
 export class Navigation extends Core<HTMLElement> implements ModalControllable {

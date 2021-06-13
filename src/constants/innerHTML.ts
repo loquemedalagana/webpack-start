@@ -1,5 +1,5 @@
 import {APP_TITLE} from "./texts";
-import { ImageItem } from "../types/item";
+import { ImageItem } from "../types/post";
 
 /* 자잘한 태그들 */
 
