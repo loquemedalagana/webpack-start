@@ -54,13 +54,14 @@ export class CardList extends Core<HTMLElement> implements Composable {
   }
 
   makeCardComponent(postData: PostDataType) {
-    const cardComponent = new this.cardConstructor(postData.id);
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
     const mediaComponent = CardList.getMediaComponent(postData);
     const cardDescriptionComponent = new CardDescription(postData.description);
 
+    // @ts-ignore
+    const cardComponent = new this.cardConstructor(mediaComponent.getId(postData.url));
     cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
     cardComponent.setOnCloseListener(onCloseListener);
 
