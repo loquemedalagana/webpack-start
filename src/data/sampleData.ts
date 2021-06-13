@@ -2,12 +2,6 @@ import { PostItem } from '../types/post';
 
 export const samplePostList: Array<Partial<PostItem>> = [
   {
-    type: "post",
-    id: "100",
-    title: '첫번째 노트 제목',
-    description: '격하게 아무것도 하기싫다ㅠㅠ',
-  },
-  {
     type: "video",
     id: "wtTvZH3Q7js",
     url: 'https://youtu.be/wtTvZH3Q7js',
@@ -28,12 +22,6 @@ export const samplePostList: Array<Partial<PostItem>> = [
     url: 'https://www.youtube.com/embed/AMM9gikcGdY',
     title: '[전인혁band] 야다 전인혁의 다시부르기 - 변진섭 ‘너에게로 또 다시’',
     description: '안녕하세요. 이번엔 연주한 곡은 \n변진섭 선배님의 명곡 ‘너에게로 또 다시’를 연주해봤습니다.',
-  },
-  {
-    type: "post",
-    id: "102",
-    title: '두 번째 노트 제목',
-    description: '아오 심심해ㅠ 진짜 먹고 살기 힘들다 돈도 없고ㅠㅠ 밥이나먹자',
   },
   {
     type: "video",
