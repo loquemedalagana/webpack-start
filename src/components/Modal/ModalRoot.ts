@@ -38,10 +38,17 @@ export class ModalRoot implements Composable {
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
     let modalFormChildren: Input[] = [];
 
+    const onKeyPress = (e: Event) => {
+      // focus는 나중에 추가하자ㅠㅠ
+    };
+
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
       // make output based on inputted data
-      console.log(modalFormChildren.map(inputComponent => inputComponent.inputValue));
+      console.log(modalFormChildren.map(inputComponent => ({
+        key: inputComponent.inputType,
+        value: inputComponent.inputValue,
+      })));
       removeModal();
     };
 
