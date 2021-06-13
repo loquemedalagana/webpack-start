@@ -3,12 +3,20 @@ import { OnKeyPressListener } from "../../types/eventlistener";
 import { InputType } from "../../types/item";
 import { INPUT_INNERHTML } from "../../constants/innerHTML";
 
-export class Input extends Core<HTMLElement>{
-  constructor(id: InputType, onKeyPress: OnKeyPressListener) {
-    super(INPUT_INNERHTML, 'input');
+interface InputComponent {
+  inputValue: string;
+}
 
+export class Input extends Core<HTMLElement> implements InputComponent {
+  inputValue: string;
+
+  constructor(type: InputType, onKeyPress?: OnKeyPressListener) {
+    super(INPUT_INNERHTML, 'input');
+    const $labelElement = this.$element.querySelector('.input-label') as HTMLLabelElement;
     const $inputElement = this.$element.querySelector('.input')! as HTMLInputElement;
-    $inputElement.id = id;
-    $inputElement.addEventListener('', onKeyPress);
+    $labelElement.innerText = type;
+    $inputElement.id = type;
+    this.inputValue = $inputElement.value;
+    // $inputElement.addEventListener('', onKeyPress);
   }
 }
