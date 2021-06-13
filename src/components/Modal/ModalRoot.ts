@@ -49,6 +49,7 @@ export class ModalRoot implements Composable {
     const submitData = () => {
       const initialValue: Partial<PostItem> = {
         type: newPostType,
+        id: (newPostType === 'video') ? undefined : uuidv4(),
       };
 
       const inputResult = modalFormChildren.reduce((result, inputComponent) => {

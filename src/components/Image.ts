@@ -1,6 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-import { Core} from "./Core";
-import { MediaComponent, PostItem } from "../types/post";
+import { Core } from './Core';
+import { MediaComponent, PostItem } from '../types/post';
 import { IMAGE_INNERHTML } from '../constants/innerHTML';
 
 export class Image extends Core<HTMLElement | HTMLImageElement> implements MediaComponent {
@@ -14,6 +13,6 @@ export class Image extends Core<HTMLElement | HTMLImageElement> implements Media
   }
 
   getId(url: string): string {
-    return uuidv4();
+    throw new Error('in this component id should be created before');
   }
 }

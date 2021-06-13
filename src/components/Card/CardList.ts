@@ -68,7 +68,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
     const mediaComponent = CardList.getMediaComponent(postData);
     const cardDescriptionComponent = new CardDescription(postData.description);
-    const newElementId = mediaComponent.getId(postData.url);
+    const newElementId = postData.id ? postData.id : mediaComponent.getId(postData.url);
 
     const cardComponent = new this.cardConstructor(newElementId);
     cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
