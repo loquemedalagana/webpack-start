@@ -44,11 +44,34 @@ export class ModalRoot implements Composable {
 
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
+      const inputResult = modalFormChildren.reduce((result, inputComponent) => {
+        switch (inputComponent.inputType) {
+          case 'description-input':
+            return {
+              ...result,
+              description: inputComponent.inputValue,
+            };
+          case 'title-input':
+            return {
+              ...result,
+              title: inputComponent.inputValue,
+            };
+          case 'url-input':
+            return {
+              ...result,
+              url: inputComponent.inputValue,
+            };
+        }
+      }, {});
+
       // make output based on inputted data
-      console.log(modalFormChildren.map(inputComponent => ({
-        key: inputComponent.inputType,
-        value: inputComponent.inputValue,
-      })));
+      console.log(inputResult);
+
+      // 객체 형태로 매핑!
+
+      // 1. 로컬스토리지에 저장하기
+
+      // 2. DOM 조작하기
       removeModal();
     };
 
