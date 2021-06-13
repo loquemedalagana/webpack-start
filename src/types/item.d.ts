@@ -3,20 +3,21 @@ export type ComponentType = 'media' | 'description' | 'header' | 'footer' | 'mod
 export type ModalType = 'view-post-detail' | 'add-card';
 export type InputType = 'url-input' | 'title-input' | 'description-input';
 
-export type PostItem = {
+export interface PostItem {
   type: PostType;
   id: string;
   title: string;
   description?: string;
 }
 
-export type ImageItem = PostItem & {
+export interface ImageItem extends PostItem {
   url: string;
 }
 
-export type VideoItem = Partial<PostItem> & {
+export interface VideoItem extends Partial<PostItem> {
   url: string;
-};
+  extractId(url: string): string;
+}
 
 // @ts-ignore
 export type PostDataType = PostItem | ImageItem | VideoItem;
