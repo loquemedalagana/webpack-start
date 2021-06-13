@@ -1,6 +1,6 @@
 import { PostItem } from '../types/post';
 
-export const samplePostList: Array<PostItem> = [
+export const samplePostList: Array<Partial<PostItem>> = [
   {
     type: "post",
     id: "100",
@@ -44,3 +44,13 @@ export const samplePostList: Array<PostItem> = [
       '고화질 , 이어폰으로 감상 부탁드립니다.\n\n안녕하세요. \n이번엔 저희가 연주한 곡은 \n신성우 선배님의 명곡 ‘서시’ 입니다.\n명절 잘 보내시고요, 즐겁게 감상해주세요~\n새해 복 많이 받으세요.^^\n\n',
   },
 ];
+
+/*
+test data
+희야
+https://www.youtube.com/watch?v=KP3tT7__XZQ
+
+- channel description
+https://www.youtube.com/watch?v=OSXOC45wDRA&t=2s
+
+*  */
