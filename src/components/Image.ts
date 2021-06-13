@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Core, MediaComponent } from "./Core";
-import { ImageItem } from '../types/post';
+import { PostItem } from '../types/post';
 import { IMAGE_INNERHTML } from '../constants/innerHTML';
 
 export class Image extends Core<HTMLElement | HTMLImageElement> implements MediaComponent {
-  constructor(imageInfo: ImageItem) {
+  constructor(imageInfo: PostItem) {
     super(IMAGE_INNERHTML, 'media');
 
     const $imageElement = this.$element.querySelector('.image')! as HTMLImageElement;

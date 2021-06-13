@@ -5,7 +5,7 @@ import {
   Component,
   ClosableHeaderComponentConstructor,
 } from '../Core';
-import { ModalType, PostDataType, PostType } from '../../types/post';
+import { ModalType, PostItem, PostType } from "../../types/post";
 import { ModalAction } from './ModalAction';
 import { ModalForm } from './ModalForm';
 import { Input } from './Input';
@@ -26,7 +26,7 @@ export class ModalRoot implements Composable {
     this.$modalRoot.innerHTML = '';
   }
 
-  addChildren(children: Component[], postData?: PostDataType) {
+  addChildren(children: Component[], postData?: PostItem) {
     if (children.length > 1) {
       throw new Error('modal component should be one');
     }
@@ -36,7 +36,7 @@ export class ModalRoot implements Composable {
     child.attachTo(this.$modalRoot, 'beforeend');
   }
 
-  openModal(postData?: PostDataType, newPostType?: PostType) {
+  openModal(postData?: PostItem, newPostType?: PostType) {
     const newModal = new this.modalComponentConstructor(postData);
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
     let modalFormChildren: Input[] = [];

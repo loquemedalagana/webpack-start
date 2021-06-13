@@ -1,4 +1,4 @@
-import { ComponentType, PostDataType } from '../types/post';
+import { ComponentType, PostItem } from "../types/post";
 import { OnCloseLister } from '../types/eventlistener';
 import { ModalRoot } from './Modal/ModalRoot';
 
@@ -9,7 +9,7 @@ export interface Component {
 }
 
 export interface Composable {
-  addChildren(children: Component[], postData?: PostDataType): void;
+  addChildren(children: Component[], postData?: PostItem): void;
 }
 
 export interface MediaComponent {
@@ -34,11 +34,11 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (data: PostDataType | string, onClose?: OnCloseLister): Component;
+  new (data: PostItem | string, onClose?: OnCloseLister): Component;
 };
 
 export type InteractiveComponentConstructor = {
-  new (postData?: PostDataType): InteractiveComponent;
+  new (postData?: PostItem): InteractiveComponent;
 };
 
 // media component와 통합?

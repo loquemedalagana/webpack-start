@@ -9,7 +9,7 @@ import {
 import { Image } from '../Image';
 import { Video } from '../Video';
 import { Post } from '../Post';
-import { ImageItem, PostDataType, PostItem, VideoItem } from '../../types/post';
+import { PostItem } from '../../types/post';
 import { CARDWRAPPER_INNERHTML } from '../../constants/innerHTML';
 
 import { CardDescription } from './CardDescription';
@@ -27,14 +27,14 @@ export class CardList extends Core<HTMLElement> implements Composable {
     this.addChildren(this.postComponentList);
   }
 
-  private static getMediaComponent(postData: PostDataType): Image | Video | Post {
+  private static getMediaComponent(postData: PostItem): Image | Video | Post {
     switch (postData.type) {
       case 'video':
-        return new Video(postData! as VideoItem);
+        return new Video(postData! as PostItem);
       case 'post':
         return new Post(postData! as PostItem);
       case 'image':
-        return new Image(postData! as ImageItem);
+        return new Image(postData! as PostItem);
     }
   }
 
@@ -44,7 +44,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
 
     for (let i = 0; i < POST_LIST_LENGTH; i++) {
       const key = localStorage.key(i);
-      const value = JSON.parse(localStorage.getItem(key))! as PostDataType;
+      const value = JSON.parse(localStorage.getItem(key))! as PostItem;
       const cardComponent = this.makeCardComponent(value);
 
       extractedPostList.push(cardComponent);
@@ -53,7 +53,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  makeCardComponent(postData: PostDataType) {
+  makeCardComponent(postData: PostItem) {
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);

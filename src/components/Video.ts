@@ -1,12 +1,12 @@
 import { Core, MediaComponent } from "./Core";
-import { VideoItem } from '../types/post';
+import { PostItem } from '../types/post';
 import { VIDEO_INNERHTML } from '../constants/innerHTML';
 import { youtubeRegExp } from '../constants/regExp';
 
 export class Video extends Core<HTMLIFrameElement | HTMLElement> implements MediaComponent {
   videoURL: string;
 
-  constructor(videoInfo: VideoItem) {
+  constructor(videoInfo: PostItem) {
     super(VIDEO_INNERHTML, 'media');
     this.videoURL = this.convertToEmbeddedURL(videoInfo.url);
 
