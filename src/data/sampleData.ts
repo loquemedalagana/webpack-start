@@ -10,13 +10,6 @@ export const samplePostList: Array<Partial<PostItem>> = [
       '고화질 , 이어폰으로 감상 부탁드립니다.\n\n안녕하세요. 이번엔 연주한 곡은 \n김종서 선배님의 명곡 ‘대답 없는 너’를 연주해봤습니다. \n환절기에 감기 조심하고요, 즐겁게 감상해주세요.^^\n\n',
   },
   {
-    type: "image",
-    id: "101",
-    url: 'https://yt3.ggpht.com/ytc/AAUvwniV3e0j1NQbR2l1RW5C01DNjglP_gjnHuPz8JHM=s800-c-k-c0x00ffffff-no-rj',
-    title: 'Jeon Inhyuk Band',
-    description: 'Jeon Inhyuk band official image',
-  },
-  {
     type: "video",
     id: "AMM9gikcGdY",
     url: 'https://www.youtube.com/embed/AMM9gikcGdY',
@@ -34,7 +27,7 @@ export const samplePostList: Array<Partial<PostItem>> = [
 ];
 
 /*
-test data
+test data - video
 희야
 https://www.youtube.com/watch?v=KP3tT7__XZQ
 
@@ -43,4 +36,7 @@ https://www.youtube.com/watch?v=OSXOC45wDRA&t=2s
 
 - 근황올림픽
 https://www.youtube.com/watch?v=auqUW6nGZQ0
+
+test data - image
+https://yt3.ggpht.com/ytc/AAUvwniV3e0j1NQbR2l1RW5C01DNjglP_gjnHuPz8JHM=s800-c-k-c0x00ffffff-no-rj
 *  */
