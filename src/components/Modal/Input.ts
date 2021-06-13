@@ -16,7 +16,11 @@ export class Input extends Core<HTMLElement> implements InputComponent {
     const $inputElement = this.$element.querySelector('.input')! as HTMLInputElement;
     $labelElement.innerText = type;
     $inputElement.id = type;
+    $inputElement.value = "";
     this.inputValue = $inputElement.value;
-    // $inputElement.addEventListener('', onKeyPress);
+    $inputElement.addEventListener('change', (e) => {
+      // @ts-ignore
+      this.inputValue = e.currentTarget.value;
+    });
   }
 }

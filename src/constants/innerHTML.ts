@@ -126,6 +126,6 @@ export const INPUT_INNERHTML = `
 <div class="input-wrapper">
     <label class="input-label">
     </label>
-    <input class="input">
+    <input class="input" value="">
 </div>
 `;

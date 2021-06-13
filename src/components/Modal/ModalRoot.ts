@@ -36,10 +36,12 @@ export class ModalRoot implements Composable {
   openModal(postData?: PostDataType, newPostType?: PostType) {
     const newModal = new this.modalComponentConstructor(postData);
     const modalType: ModalType = postData ? 'view-post-detail' : 'add-card';
+    let modalFormChildren: Input[] = [];
+
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
       // make output based on inputted data
-
+      console.log(modalFormChildren.map(inputComponent => inputComponent.inputValue));
       removeModal();
     };
 
@@ -52,7 +54,6 @@ export class ModalRoot implements Composable {
     const newModalAction = new ModalAction(submitData);
 
     const modalChildren = [newModalHeader];
-    const modalFormChildren = []; // inputs will be added
 
     const urlInput = new Input('url-input');
     const titleInput = new Input('title-input');
@@ -62,7 +63,9 @@ export class ModalRoot implements Composable {
       modalFormChildren.push(urlInput);
     }
 
-    newModalForm.addChildren([...modalFormChildren, titleInput, descriptionInput]);
+    modalFormChildren = [...modalFormChildren, titleInput, descriptionInput];
+
+    newModalForm.addChildren(modalFormChildren);
 
     if (modalType === 'add-card') {
       modalChildren.push(newModalForm);
