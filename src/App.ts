@@ -5,11 +5,15 @@ import { Footer } from './components/Footer';
 import { samplePostList } from './data/sampleData';
 import { Modal } from "./components/Modal/Modal";
 import { ModalHeader } from "./components/Modal/ModalHeader";
+import { CardList } from "./components/Card/CardList";
+import { Card } from "./components/Card/Card";
+import { CardHeader } from "./components/Card/CardHeader";
 
 export class App {
   private $header: Header;
   private $body: Body;
   private $footer: Footer;
+  private $cardList: CardList;
   private $modalRoot: ModalRoot;
 
   constructor(
@@ -17,7 +21,8 @@ export class App {
   ) {
     this.$modalRoot = new ModalRoot(Modal, ModalHeader);
     this.$header = new Header(this.$modalRoot);
-    this.$body = new Body(this.$modalRoot);
+    this.$cardList = new CardList(Card, CardHeader)
+    this.$body = new Body(this.$cardList);
 
     this.$footer = new Footer();
     this.$header.attachTo(appRoot, 'afterbegin');
