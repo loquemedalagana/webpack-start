@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import {
   Composable,
   InteractiveComponentConstructor,
@@ -8,11 +9,13 @@ import { ModalType, PostDataType, PostType } from '../../types/item';
 import { ModalAction } from './ModalAction';
 import { ModalForm } from './ModalForm';
 import { Input } from './Input';
+import { CardList } from "../Card/CardList";
 
 export class ModalRoot implements Composable {
   private $modalRoot: HTMLElement;
 
   constructor(
+    private readonly cardList: CardList,
     private modalComponentConstructor: InteractiveComponentConstructor, // class Modal
     private modalHeaderConstructor: ClosableHeaderComponentConstructor, // class ModalHeader
   ) {
@@ -44,6 +47,22 @@ export class ModalRoot implements Composable {
 
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
+      const getInputIdentifier = () => {
+        switch (newPostType) {
+          case "image":
+          case "post":
+            return {
+              type: newPostType,
+              id: uuidv4(),
+            }
+          case "video":
+            return {
+
+            }
+        }
+      }
+      const initialValue = getInputIdentifier();
+
       const inputResult = modalFormChildren.reduce((result, inputComponent) => {
         switch (inputComponent.inputType) {
           case 'description-input':
@@ -62,10 +81,11 @@ export class ModalRoot implements Composable {
               url: inputComponent.inputValue,
             };
         }
-      }, {});
+      }, initialValue);
 
       // make output based on inputted data
-      console.log(inputResult);
+      console.log(newPostType, inputResult);
+      // const newCardComponent = this.cardList.makeCardComponent(inputResult);
 
       // 1. dom 조작
 
