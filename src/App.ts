@@ -3,11 +3,11 @@ import { ModalRoot } from './components/Modal/ModalRoot';
 import { Body } from './Body';
 import { Footer } from './components/Footer';
 import { samplePostList } from './data/sampleData';
-import { Modal } from "./components/Modal/Modal";
-import { ModalHeader } from "./components/Modal/ModalHeader";
-import { CardList } from "./components/Card/CardList";
-import { Card } from "./components/Card/Card";
-import { CardHeader } from "./components/Card/CardHeader";
+import { Modal } from './components/Modal/Modal';
+import { ModalHeader } from './components/Modal/ModalHeader';
+import { CardList } from './components/Card/CardList';
+import { Card } from './components/Card/Card';
+import { CardHeader } from './components/Card/CardHeader';
 
 export class App {
   private $header: Header;
@@ -16,12 +16,11 @@ export class App {
   private $cardList: CardList;
   private $modalRoot: ModalRoot;
 
-  constructor(
-    appRoot: HTMLElement,
-  ) {
+  constructor(appRoot: HTMLElement) {
+    this.$cardList = new CardList(Card, CardHeader);
+
     this.$modalRoot = new ModalRoot(Modal, ModalHeader);
     this.$header = new Header(this.$modalRoot);
-    this.$cardList = new CardList(Card, CardHeader)
     this.$body = new Body(this.$cardList);
 
     this.$footer = new Footer();
