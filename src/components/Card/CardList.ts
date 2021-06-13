@@ -81,7 +81,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
 
   addChildren(children: Component[]) {
     children.forEach((child) => {
-      child.attachTo(this.$element, 'beforeend');
+      child.attachTo(this.$element, 'afterbegin');
     });
   }
 }
