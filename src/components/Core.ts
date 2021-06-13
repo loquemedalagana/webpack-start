@@ -30,7 +30,7 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (data: PostItem | string, onClose?: OnCloseLister): Component;
+  new (data: Partial<PostItem> | string, onClose?: OnCloseLister): Component;
 };
 
 export type InteractiveComponentConstructor = {

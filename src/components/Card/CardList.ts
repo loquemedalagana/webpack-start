@@ -27,14 +27,14 @@ export class CardList extends Core<HTMLElement> implements Composable {
     this.addChildren(this.postComponentList);
   }
 
-  private static getMediaComponent(postData: PostItem): Image | Video | Post {
+  private static getMediaComponent(postData: Partial<PostItem>): Image | Video | Post {
     switch (postData.type) {
       case 'video':
-        return new Video(postData! as PostItem);
+        return new Video(postData);
       case 'post':
-        return new Post(postData! as PostItem);
+        return new Post(postData);
       case 'image':
-        return new Image(postData! as PostItem);
+        return new Image(postData);
     }
   }
 
@@ -53,7 +53,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  makeCardComponent(postData: PostItem) {
+  makeCardComponent(postData: Partial<PostItem>) {
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);

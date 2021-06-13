@@ -6,7 +6,7 @@ import { youtubeRegExp } from '../constants/regExp';
 export class Video extends Core<HTMLIFrameElement | HTMLElement> implements MediaComponent {
   videoURL: string;
 
-  constructor(videoInfo: PostItem) {
+  constructor(videoInfo: Partial<PostItem>) {
     super(VIDEO_INNERHTML, 'media');
     this.videoURL = this.convertToEmbeddedURL(videoInfo.url);
 

@@ -47,21 +47,9 @@ export class ModalRoot implements Composable {
 
     const removeModal = () => newModal.removeFrom(this.$modalRoot);
     const submitData = () => {
-      const getInputIdentifier = () => {
-        switch (newPostType) {
-          case "image":
-          case "post":
-            return {
-              type: newPostType,
-              id: uuidv4(),
-            }
-          case "video":
-            return {
-
-            }
-        }
-      }
-      const initialValue = getInputIdentifier();
+      const initialValue: Partial<PostItem> = {
+        type: newPostType,
+      };
 
       const inputResult = modalFormChildren.reduce((result, inputComponent) => {
         switch (inputComponent.inputType) {

@@ -1,10 +1,10 @@
 import { Core } from '../Core';
 import { CARD_HEADER_INNERHTML } from '../../constants/innerHTML'
-import { PostDataType } from "../../types/post";
+import { PostItem } from "../../types/post";
 import { OnCloseLister } from "../../types/eventlistener";
 
 export class CardHeader extends Core<HTMLElement> {
-  constructor(postData: PostDataType, onClose?: OnCloseLister) {
+  constructor(postData: Partial<PostItem>, onClose?: OnCloseLister) {
     super(CARD_HEADER_INNERHTML, 'header');
     const { title } = postData;
 
