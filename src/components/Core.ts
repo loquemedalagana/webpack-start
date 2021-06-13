@@ -1,4 +1,4 @@
-import { ComponentType, PostDataType } from '../types/item';
+import { ComponentType, PostDataType } from '../types/post';
 import { OnCloseLister } from '../types/eventlistener';
 import { ModalRoot } from './Modal/ModalRoot';
 

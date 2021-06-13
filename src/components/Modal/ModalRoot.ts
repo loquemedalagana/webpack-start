@@ -5,7 +5,7 @@ import {
   Component,
   ClosableHeaderComponentConstructor,
 } from '../Core';
-import { ModalType, PostDataType, PostType } from '../../types/item';
+import { ModalType, PostDataType, PostType } from '../../types/post';
 import { ModalAction } from './ModalAction';
 import { ModalForm } from './ModalForm';
 import { Input } from './Input';

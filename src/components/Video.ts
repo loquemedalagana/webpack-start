@@ -1,5 +1,5 @@
 import { Core, MediaComponent } from "./Core";
-import { VideoItem } from '../types/item';
+import { VideoItem } from '../types/post';
 import { VIDEO_INNERHTML } from '../constants/innerHTML';
 import { youtubeRegExp } from '../constants/regExp';
 

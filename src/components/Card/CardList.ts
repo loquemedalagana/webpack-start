@@ -9,7 +9,7 @@ import {
 import { Image } from '../Image';
 import { Video } from '../Video';
 import { Post } from '../Post';
-import { ImageItem, PostDataType, PostItem, VideoItem } from '../../types/item';
+import { ImageItem, PostDataType, PostItem, VideoItem } from '../../types/post';
 import { CARDWRAPPER_INNERHTML } from '../../constants/innerHTML';
 
 import { CardDescription } from './CardDescription';

@@ -1,4 +1,4 @@
-import { PostItem, ImageItem, VideoItem } from '../types/item';
+import { PostItem, ImageItem, VideoItem } from '../types/post';
 
 export const samplePostList: Array<PostItem | VideoItem | ImageItem> = [
   {

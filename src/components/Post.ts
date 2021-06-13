@@ -1,5 +1,5 @@
 import { Image } from './Image';
-import { PostItem } from '../types/item';
+import { PostItem } from '../types/post';
 import { randomImages, IMAGE_COUNT } from "../constants/images";
 
 export class Post extends Image {

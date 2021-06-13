@@ -1,6 +1,6 @@
 import { Core } from "../Core";
 import { OnKeyPressListener } from "../../types/eventlistener";
-import { InputType } from "../../types/item";
+import { InputType } from "../../types/post";
 import { INPUT_INNERHTML } from "../../constants/innerHTML";
 
 interface InputComponent {

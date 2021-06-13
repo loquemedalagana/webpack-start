@@ -1,6 +1,6 @@
 import { Core } from '../Core';
 import { CARD_HEADER_INNERHTML } from '../../constants/innerHTML'
-import { PostDataType } from "../../types/item";
+import { PostDataType } from "../../types/post";
 import { OnCloseLister } from "../../types/eventlistener";
 
 export class CardHeader extends Core<HTMLElement> {
