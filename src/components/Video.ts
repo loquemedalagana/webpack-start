@@ -1,9 +1,9 @@
-import { Core } from './Core';
+import { Core, MediaComponent } from "./Core";
 import { VideoItem } from '../types/item';
 import { VIDEO_INNERHTML } from '../constants/innerHTML';
 import { youtubeRegExp } from '../constants/regExp';
 
-export class Video extends Core<HTMLIFrameElement | HTMLElement> {
+export class Video extends Core<HTMLIFrameElement | HTMLElement> implements MediaComponent {
   videoURL: string;
 
   constructor(videoInfo: VideoItem) {
@@ -14,7 +14,7 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
     $videoElement.src = this.videoURL;
   }
 
-  getVideoId (url: string): string | undefined {
+  getId (url: string): string {
     const defaultVideoId = 'OSXOC45wDRA';
     const match = url.match(youtubeRegExp);
     const videoId = match ? match[1] || match[2] : undefined;
@@ -22,6 +22,6 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> {
   }
 
   private convertToEmbeddedURL(url: string): string {
-    return `https://www.youtube.com/embed/${this.getVideoId(url)}`;
+    return `https://www.youtube.com/embed/${this.getId(url)}`;
   }
 }

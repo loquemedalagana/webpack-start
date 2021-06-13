@@ -12,6 +12,10 @@ export interface Composable {
   addChildren(children: Component[], postData?: PostDataType): void;
 }
 
+export interface MediaComponent {
+  getId(url?: string): string;
+}
+
 export interface ClosableComponent extends Composable, Component {
   setOnCloseListener(listener: OnCloseLister): void;
 }
