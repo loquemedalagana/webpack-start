@@ -1,5 +1,5 @@
-import { Core, MediaComponent } from "./Core";
-import { PostItem } from '../types/post';
+import { Core} from "./Core";
+import { MediaComponent, PostItem } from "../types/post";
 import { VIDEO_INNERHTML } from '../constants/innerHTML';
 import { youtubeRegExp } from '../constants/regExp';
 

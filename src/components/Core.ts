@@ -1,6 +1,6 @@
 import { ComponentType, PostItem } from "../types/post";
-import { OnCloseLister } from '../types/eventlistener';
-import { ModalRoot } from './Modal/ModalRoot';
+import { OnCloseLister } from "../types/eventlistener";
+import { ModalRoot } from "./Modal/ModalRoot";
 
 export interface Component {
   type?: ComponentType;
@@ -10,10 +10,6 @@ export interface Component {
 
 export interface Composable {
   addChildren(children: Component[], postData?: PostItem): void;
-}
-
-export interface MediaComponent {
-  getId(url?: string): string;
 }
 
 export interface ClosableComponent extends Composable, Component {
