@@ -53,17 +53,26 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
+  private saveInLocalStorage(newElementId: string, postData: Partial<PostItem>) {
+    const foundValue = localStorage.getItem(newElementId);
+    if(foundValue === null) {
+      localStorage.setItem(newElementId, JSON.stringify(postData));
+    }
+  }
+
   makeCardComponent(postData: Partial<PostItem>) {
     const onCloseListener = () => cardComponent.removeFrom(this.$element);
 
     const cardHeaderComponent = new this.cardHeaderConstructor(postData, onCloseListener);
     const mediaComponent = CardList.getMediaComponent(postData);
     const cardDescriptionComponent = new CardDescription(postData.description);
+    const newElementId = mediaComponent.getId(postData.url);
 
-    // @ts-ignore
-    const cardComponent = new this.cardConstructor(mediaComponent.getId(postData.url));
+    const cardComponent = new this.cardConstructor(newElementId);
     cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
     cardComponent.setOnCloseListener(onCloseListener);
+
+    this.saveInLocalStorage(newElementId, postData);
 
     return cardComponent;
   }
