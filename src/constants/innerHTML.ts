@@ -1,5 +1,4 @@
-import {APP_TITLE} from "./texts";
-import { ImageItem } from "../types/post";
+import { APP_TITLE } from './texts';
 
 /* 자잘한 태그들 */
 
@@ -16,7 +15,7 @@ export const COPYRIGHT_INNERHTML = `
     >
       Mrs. Liberty
     </a>
-    ${" "}
+    ${' '}
     for a better world.
   </span>
 </div>
@@ -47,7 +46,6 @@ export const CARD_HEADER_INNERHTML = `
     </div>
   </div>
 `;
-
 
 export const CARD_DESCRIPTION_INNERHTML = `
   <div class="card-description-wrapper">
