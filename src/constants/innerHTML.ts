@@ -115,14 +115,14 @@ export const MODAL_ACTION_INNERHTML = `
 `;
 
 export const MODAL_FORM_INNERHTML = `
-<section class="modal-form-inputs-wrapper">
-</section>
+<ul class="modal-form-inputs-wrapper">
+</ul>
 `;
 
 export const INPUT_INNERHTML = `
-<div class="input-wrapper">
+<li class="input-wrapper">
     <label class="input-label">
     </label>
     <input type="text" class="input" value="">
-</div>
+</li>
 `;
