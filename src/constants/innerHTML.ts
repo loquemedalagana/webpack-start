@@ -92,10 +92,12 @@ export const NAVIGATION_INNERHTML = `
 
 export const MODAL_INNERHTML = `
 <div class="modal-wrapper modal-full-screen">
+<div>
   <div class="modal-container hidden">
     <div class="modal-body"></div>
     <form class="modal-form"></form>
   </div>
+</div>
 </div>
 `;
 
