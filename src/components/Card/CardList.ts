@@ -55,7 +55,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     return extractedPostList;
   }
 
-  private saveInLocalStorage(newElementId: string, postData: Partial<PostItem>) {
+  private static saveInLocalStorage(newElementId: string, postData: Partial<PostItem>) {
     const foundValue = localStorage.getItem(newElementId);
     if (foundValue === null) {
       localStorage.setItem(newElementId, JSON.stringify(postData));
@@ -74,7 +74,7 @@ export class CardList extends Core<HTMLElement> implements Composable {
     cardComponent.addChildren([cardHeaderComponent, mediaComponent, cardDescriptionComponent]);
     cardComponent.setOnCloseListener(onCloseListener);
 
-    this.saveInLocalStorage(newElementId, postData);
+    CardList.saveInLocalStorage(newElementId, postData);
 
     return cardComponent;
   }
