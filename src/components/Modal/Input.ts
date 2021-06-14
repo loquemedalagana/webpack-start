@@ -11,19 +11,18 @@ interface InputComponent {
 export class Input extends Core<HTMLElement> implements InputComponent {
   inputValue: string;
   inputType: InputType;
+  private $inputElement: HTMLInputElement;
 
   constructor(type: InputType, onKeyPress?: OnKeyPressListener) {
     super(INPUT_INNERHTML, 'input');
     const $labelElement = this.$element.querySelector('.input-label') as HTMLLabelElement;
-    const $inputElement = this.$element.querySelector('.input')! as HTMLInputElement;
+    this.$inputElement = this.$element.querySelector('.input')! as HTMLInputElement;
     $labelElement.innerText = type;
-    $inputElement.id = type;
-    $inputElement.value = "";
-    this.inputValue = $inputElement.value;
+    this.$inputElement.id = type;
     this.inputType = type;
-    $inputElement.addEventListener('change', (e) => {
-      // @ts-ignore
-      this.inputValue = e.currentTarget.value;
-    });
+  }
+
+  get getInputValue(): string {
+    return this.$inputElement.value;
   }
 }

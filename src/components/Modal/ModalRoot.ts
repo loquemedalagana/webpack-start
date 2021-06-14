@@ -57,17 +57,17 @@ export class ModalRoot implements Composable {
           case 'description-input':
             return {
               ...result,
-              description: inputComponent.inputValue,
+              description: inputComponent.getInputValue,
             };
           case 'title-input':
             return {
               ...result,
-              title: inputComponent.inputValue,
+              title: inputComponent.getInputValue,
             };
           case 'url-input':
             return {
               ...result,
-              url: inputComponent.inputValue,
+              url: inputComponent.getInputValue,
             };
         }
       }, initialValue);
