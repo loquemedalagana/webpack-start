@@ -1,12 +1,6 @@
-import {
-  ComponentType,
-  ImageItem,
-  PostDataType,
-  PostItem,
-  PostType,
-  VideoItem
-} from "../types/item";
+import { ComponentType, PostItem } from "../types/post";
 import { OnCloseLister } from "../types/eventlistener";
+import { ModalRoot } from "./Modal/ModalRoot";
 
 export interface Component {
   type?: ComponentType;
@@ -15,15 +9,20 @@ export interface Component {
 }
 
 export interface Composable {
-  addChildren(children: Component[], postData?: PostDataType): void;
+  addChildren(children: Component[], postData?: PostItem): void;
 }
 
 export interface ClosableComponent extends Composable, Component {
   setOnCloseListener(listener: OnCloseLister): void;
 }
 
-export interface InteractiveComponent {
+export interface InteractiveComponent extends ClosableComponent {
+  $form?: HTMLFormElement;
+  setOnSubmitListener(listener: OnCloseLister): void;
+}
 
+export interface ModalControllable {
+  modalRootComponent: ModalRoot;
 }
 
 export type CloseableComponentConstructor = {
@@ -31,8 +30,17 @@ export type CloseableComponentConstructor = {
 };
 
 export type ClosableHeaderComponentConstructor = {
-  new (postData: PostDataType, onClose?: OnCloseLister): Component;
-}
+  new (data: Partial<PostItem> | string, onClose?: OnCloseLister): Component;
+};
+
+export type InteractiveComponentConstructor = {
+  new (postData?: PostItem): InteractiveComponent;
+};
+
+// media component와 통합?
+export type ModalControllableComponentConstructor = {
+  new (modalRoot: ModalRoot): ModalControllable;
+};
 
 export class Core<T extends HTMLElement> implements Component {
   protected readonly $element: T; // 자식 클래스에서만 접근 가능
