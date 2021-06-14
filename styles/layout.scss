@@ -27,11 +27,15 @@
 #app {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
 
   position: relative;
   margin: 0;
+  border: 0;
   text-align: center;
   justify-items: center;
+  justify-content: center;
   width: 100%;
   z-index: 3;
 }
