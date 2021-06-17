@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
@@ -16,6 +17,7 @@ module.exports = {
       template: './assets/index.html',
     }),
     new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
@@ -29,23 +31,19 @@ module.exports = {
       },
       {
         test: /\.(s[ac]|c)ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
         },
       },
     ],
   },
 
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: ['.ts', '.js'],
   },
 
   devtool: 'source-map',
