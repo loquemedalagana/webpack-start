@@ -1,15 +1,13 @@
-import { CardList } from './components/CardList';
-import { Card } from './components/Card/Card';
-import { CardHeader } from './components/Card/CardHeader';
+import { CardList } from './components/Card/CardList';
 
 export class Body {
   private $element: HTMLElement;
-  private $cardWrapper: CardList;
+  private $cardList: CardList;
 
-  constructor() {
+  constructor(private readonly cardList: CardList) {
     this.$element = document.querySelector('main');
-    this.$cardWrapper = new CardList(Card, CardHeader);
+    this.$cardList = cardList;
     this.$element.setAttribute('class', 'container');
-    this.$cardWrapper.attachTo(this.$element);
+    this.$cardList.attachTo(this.$element, 'afterbegin');
   }
 }
