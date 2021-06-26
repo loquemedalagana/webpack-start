@@ -7,7 +7,6 @@ export class Body {
   constructor(private readonly cardList: CardList) {
     this.$element = document.querySelector('main');
     this.$cardList = cardList;
-    this.$element.setAttribute('class', 'container');
     this.$cardList.attachTo(this.$element, 'afterbegin');
   }
 }
