@@ -1,4 +1,4 @@
-import { Core } from '../util/Core';
+import { Core } from './Core';
 import { COPYRIGHT_INNERHTML, FOOTER_INNERHTML } from '../constants/innerHTML';
 
 export class Footer extends Core<HTMLElement>{

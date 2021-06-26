@@ -1,19 +1,16 @@
-import { Core } from "../util/Core";
+import { Core, ModalControllable } from "./Core";
 import { NAVIGATION_INNERHTML } from '../constants/innerHTML';
-import {PostType} from "../types/item";
+import { PostType } from '../types/post';
+import { ModalRoot } from "./Modal/ModalRoot";
 
-type NavItemsId = {
-  name: string;
-  id: string;
-};
-
-export class Navigation extends Core<HTMLElement>{
+export class Navigation extends Core<HTMLElement> implements ModalControllable {
+  modalRootComponent: ModalRoot;
   private $navItems: HTMLElement[];
   private navItemsName: Array<PostType> = ['image', 'video', 'post'];
 
-  constructor() {
+  constructor(modalRoot: ModalRoot) {
     super(NAVIGATION_INNERHTML);
-
+    this.modalRootComponent = modalRoot;
     this.$navItems = this.createNavItems();
     this.$navItems.forEach(($navItem) => {
       this.$element.appendChild($navItem);
@@ -29,10 +26,11 @@ export class Navigation extends Core<HTMLElement>{
       $navButtonElement.setAttribute('class', 'button-transparent nav-button');
       $navButtonElement.innerText = itemTitle;
 
+      $navButtonElement.onclick = () => this.modalRootComponent.openModal(undefined, itemTitle);
+
       $navItemElement.appendChild($navButtonElement);
 
       return $navItemElement;
     });
   }
-
 }
