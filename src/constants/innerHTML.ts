@@ -64,7 +64,7 @@ export const IMAGE_INNERHTML = `
 export const VIDEO_INNERHTML = `
 <div class="card-media-wrapper">
   <div class="video-player-wrapper">
-    <iframe class="video-player" frameborder="0"></iframe>
+    <iframe class="video-player" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 `;

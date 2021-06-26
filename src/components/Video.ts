@@ -22,6 +22,6 @@ export class Video extends Core<HTMLIFrameElement | HTMLElement> implements Medi
   }
 
   private convertToEmbeddedURL(url: string): string {
-    return `https://www.youtube.com/embed/${this.getId(url)}`;
+    return `https://www.youtube.com/embed/${this.getId(url)}&origin=http://localhost:8080`;
   }
 }
